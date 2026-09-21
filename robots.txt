@@ -1,0 +1,32 @@
+User-agent: *
+Allow: /
+
+# Permitir acceso a recursos importantes
+Allow: /img/
+Allow: /assets/
+Allow: /pdf/
+
+# Páginas especiales y de alta prioridad
+Allow: /navidad.html
+Allow: /index.html
+Allow: /somos.html
+Allow: /servicios.html
+Allow: /como.html
+Allow: /conversemos.html
+Allow: /gobiernos.html
+Allow: /empresas.html
+Allow: /personas.html
+Allow: /magna-sei.html
+
+# Bloquear archivos innecesarios
+Disallow: /cumplirse/
+Disallow: /error_log
+Disallow: /movil/
+Disallow: /*.php$
+Disallow: /showcaseX/
+
+# Sitemap
+Sitemap: https://magnacomunicaciones.com/sitemap.xml
+
+# Crawl-delay para ser amigables con los bots
+Crawl-delay: 1

@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="esp">
+<head>
+
+    <script>
+    (function(){
+        var esMovil = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (esMovil) {
+        // Redirige directamente a la versión móvil
+        window.location.replace("https://magnacomunicaciones.com/movil/navidad.html");
+        }
+    })();
+    </script>
+
+    <!-- Metas -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- SEO Meta Tags para Navidad -->
+    <meta name="keywords" content="navidad corporativa, fiestas empresariales, eventos navideños, celebraciones fin de año, navidad empresarial, regalos corporativos, experiencias navideñas, magna comunicaciones, eventos colombia, fiesta navidad empresa">
+    <meta name="description" content="Celebra la Navidad con Magna. Diseñamos experiencias corporativas navideñas memorables: fiestas de fin de año, experiencias selectas para directivos y regalos corporativos únicos. ¡Haz que tu empresa celebre con sentido!">
+    <meta name="author" content="Magna Comunicaciones">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Celebra la Navidad con Magna - Experiencias Corporativas Navideñas">
+    <meta property="og:description" content="Diseñamos experiencias navideñas memorables para empresas: fiestas corporativas, experiencias selectas y regalos únicos. Celebra con sentido, elegancia y memorabilidad.">
+    <meta property="og:image" content="https://magnacomunicaciones.com/img/navidad1.png">
+    <meta property="og:url" content="https://magnacomunicaciones.com/navidad.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Magna Comunicaciones">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Celebra la Navidad con Magna - Experiencias Corporativas">
+    <meta name="twitter:description" content="Fiestas de fin de año, experiencias selectas y regalos corporativos únicos. Celebra con Magna.">
+    <meta name="twitter:image" content="https://magnacomunicaciones.com/img/navidad1.png">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Experiencias Navideñas Corporativas Magna",
+      "description": "Celebra la Navidad con Magna. Diseñamos experiencias corporativas navideñas: fiestas de fin de año, experiencias selectas para directivos y regalos corporativos únicos.",
+      "organizer": {
+        "@type": "Organization",
+        "name": "Magna Comunicaciones",
+        "url": "https://magnacomunicaciones.com"
+      },
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Colombia",
+        "address": "Medellín, Colombia"
+      }
+    }
+    </script>
+
+    <!-- Title  -->
+    <title>Navidad | Transformamos ideas en soluciones estrategicas</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/logo.svg">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+        rel="stylesheet">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="assets/css/plugins.css">
+
+    <!-- Core Style Css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <style>
+        /* Deshabilitar animaciones del banner principal */
+        .slider,
+        .parallax-slider,
+        .swiper-slide,
+        .caption,
+        .wtitulo {
+            transform: none !important;
+            opacity: 1 !important;
+            animation: none !important;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1000;
+        }
+        
+        .whatsapp-float img {
+            width: 40px;
+            height: 40px;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        /* ==================== ESTILOS NAVIDAD LANDING ==================== */
+        /* Efectos hover para botones */
+        .btn-navidad:hover {
+            background: #0a5d2d !important;
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(10, 93, 45, 0.3);
+        }
+
+        .btn-diferencial:hover {
+            background: #ffd700 !important;
+            color: #0a5d2d !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-whatsapp:hover {
+            background: #128c7e !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-cotizacion:hover {
+            background: #e6c200 !important;
+            color: #0a5d2d !important;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-servicio:hover {
+            background: #1a7a3e !important;
+            color: white !important;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(26, 122, 62, 0.3);
+        }
+
+        .btn-cta-principal:hover {
+            background: #e6c200 !important;
+            color: #0a5d2d !important;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-cta-secundario:hover {
+            background: #ffd700 !important;
+            color: #0a5d2d !important;
+            border-color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+
+        /* Efectos hover para cards de experiencias */
+        .experiencia-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15) !important;
+            border-color: #ffd700 !important;
+        }
+
+        .btn-experiencia:hover {
+            color: #ffd700 !important;
+            border-bottom-color: #0a5d2d !important;
+        }
+
+        /* Efectos hover para nueva sección de invitación */
+        .razon-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15) !important;
+            border-color: #ffd700 !important;
+            background: #ffffff !important;
+        }
+
+        .btn-invitacion-principal:hover {
+            background: #e6c200 !important;
+            color: #0a5d2d !important;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+        }
+
+        .btn-invitacion-secundario:hover {
+            background: #ffd700 !important;
+            color: #0a5d2d !important;
+            border-color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+
+        /* Animaciones suaves */
+        .experiencia-card,
+        .razon-card,
+        .btn-navidad,
+        .btn-diferencial,
+        .btn-whatsapp,
+        .btn-experiencia,
+        .btn-cotizacion,
+        .btn-servicio,
+        .btn-cta-principal,
+        .btn-cta-secundario,
+        .btn-invitacion-principal,
+        .btn-invitacion-secundario {
+            transition: all 0.3s ease;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-navidad h1 {
+                font-size: 36px !important;
+            }
+            
+            .experiencias-navidad h2,
+            .diferencial-magna h2,
+            .contacto-navidad h2 {
+                font-size: 32px !important;
+            }
+            
+            .experiencia-card {
+                margin-bottom: 30px;
+            }
+            
+            .formulario-contacto {
+                padding: 30px !important;
+            }
+        }
+
+        /* Form focus states */
+        .formulario-contacto input:focus,
+        .formulario-contacto select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.3);
+        }
+
+        .formulario-contacto button:hover {
+            background: #0a5d2d !important;
+            color: #ffd700 !important;
+            transform: translateY(-2px);
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Enlaces del navbar con efecto hover mejorado */
+        .simple-nav-btn {
+            background: #ff5a27 !important;
+            color: white !important;
+            padding: 8px 16px !important;
+            border-radius: 4px !important;
+            text-decoration: none !important;
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 500 !important;
+            font-size: 14px !important;
+            transition: all 0.3s ease !important;
+            display: inline-block !important;
+            margin: 0 5px !important;
+            border: none !important;
+            cursor: pointer !important;
+        }
+
+        .simple-nav-btn:hover {
+            background: #e04a1f !important;
+            color: white !important;
+            text-decoration: none !important;
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 8px rgba(255, 90, 39, 0.3) !important;
+        }
+        
+        .simple-nav-btn:focus,
+        .simple-nav-btn:active {
+            background: #e04a1f !important;
+            color: white !important;
+            text-decoration: none !important;
+            outline: none !important;
+        }
+        
+        /* Responsive para botones móviles */
+        @media (max-width: 768px) {
+            .simple-nav-btn {
+                padding: 6px 12px !important;
+                font-size: 12px !important;
+                margin: 2px !important;
+            }
+        }
+        /* ==================== FIN ESTILOS NAVIDAD LANDING ==================== */
+    </style>
+</head>
+
+
+
+    <a Target="_blank" href="https://wa.me/573233131056?text=Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n" class="whatsapp-float" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+    </a>
+
+
+<body class="home-corp main-bg">
+    <!-- ==================== Start Loading ==================== -->
+
+
+    <!-- ==================== End Loading ==================== -->
+
+
+
+
+    <!-- ==================== Start progress-scroll-button ==================== -->
+
+ 
+
+    <!-- ==================== End progress-scroll-button ==================== -->
+
+
+    <div id="smooth-wrapper">
+
+       <!-- ==================== Start Navbar ==================== -->
+        <nav class="navbar navbar-expand-lg static">
+            <div class="container">
+
+                <!-- Logo -->
+                <a class="logo icon-img-100" href="index.html" style="margin-left: 2%;">
+                    <img src="img/logo.svg" alt="Magna Logo" style="width: 40px;">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icon-bar"><i class="fas fa-bars"></i></span>
+                </button>
+
+                <!-- navbar links -->
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+            
+                        <li class="nav-item dropdown">
+                            <a href="index.html" class="nav-link"><span>Inicio</span></a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="somos.html" class="nav-link"><span>Somos Magna</span></a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="como.html" class="nav-link"><span>¿Cómo lo hacemos?</span></a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><span>Servicios</span></a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="gobiernos.html">Gobiernos</a>
+                                <a class="dropdown-item" href="empresas.html">Empresas (Pymes)</a>
+                                <a class="dropdown-item" href="personas.html">Personas</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a href="conversemos.html" class="nav-link"><span>Conversemos</span></a>
+                        </li>
+            
+                        <li class="nav-item dropdown">
+                            <a target="_blank" href="https://magnacomunicacionesco.blogspot.com/" class="nav-link"><span>Blog</span></a>
+                        </li>
+                        
+                    
+                    </ul>
+                </div>
+
+                <div class="search-form">
+                    <a href="magna-sei.html" class="simple-nav-btn">Magna SEI</a>
+                    <a target="_blank" href="https://wa.me/573233131056?text=Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n" class="simple-nav-btn">WhatsApp</a>
+                </div>
+            </div>
+        </nav>
+        <!-- ==================== End Navbar ==================== -->
+
+
+
+
+
+        <div id="smooth-content">
+            <main class="main-bg">
+                <!-- ==================== Hero Navidad ==================== -->
+                <section class="hero-navidad" style="background: linear-gradient(135deg, #0a5d2d 0%, #1a7a3e 50%, #2d8f4e 100%); padding: 120px 0 80px; color: white; position: relative; overflow: hidden;">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <h1 style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 48px; line-height: 1.2; margin-bottom: 30px; letter-spacing: -1px;">
+                                    Celebra una Navidad con <span style="font-weight: 600; color: #ffd700;">propósito</span> junto a Magna
+                                </h1>
+                                <p style="font-size: 18px; line-height: 1.6; font-weight: 300; margin-bottom: 25px; opacity: 0.9;">
+                                    En Magna creemos que la Navidad es más que una celebración: es un ritual de gratitud, unión y reconocimiento. <br>Diseñamos experiencias memorables para empresas que quieren cerrar el año fortaleciendo lazos, inspirando a sus equipos y sorprendiendo a sus aliados.
+                                </p>
+                                <p style="font-size: 16px; font-weight: 400; margin-bottom: 35px; color: #ffd700;">
+                                    Este año, haz que tu empresa celebre con sentido, elegancia y memorabilidad.
+                                </p>
+                                <a href="https://api.whatsapp.com/send/?phone=573233131056&text=Hola+quisiera+m%C3%A1s+informaci%C3%B3n&type=phone_number&app_absent=0" class="btn-navidad" style="background: #ffd700; color: #0a5d2d; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 16px; transition: all 0.3s ease; display: inline-block;">
+                                 Cotiza
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="hero-image" style="text-align: center; position: relative;">
+                                    <img src="img/navidad1.png" alt="Navidad Magna 2024" style="width: 100%; max-width: 500px; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Elementos decorativos navideños -->
+                    <div style="position: absolute; top: 20px; right: 20px; color: #ffd700; font-size: 24px; opacity: 0.3;">•</div>
+                    <div style="position: absolute; bottom: 30px; left: 30px; color: #ffd700; font-size: 18px; opacity: 0.4;">+</div>
+                    <div style="position: absolute; top: 50%; left: 10px; color: #ffd700; font-size: 20px; opacity: 0.3;">×</div>
+                    <div style="position: absolute; top: 80px; right: 100px; color: #ffd700; font-size: 16px; opacity: 0.4;">*</div>
+                </section>
+
+                <!-- ==================== Servicios Detallados Navidad ==================== -->
+                <section class="servicios-navidad" style="padding: 100px 0; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 text-center mb-5">
+                                <h2 style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 42px; color: #0a5d2d; margin-bottom: 20px;">
+                                    Nuestros <span style="font-weight: 600;">Servicios Navideños</span>
+                                </h2>
+                                <p style="font-size: 18px; color: #666; max-width: 600px; margin: 0 auto 40px;">
+                                    Tres experiencias diseñadas para hacer de tu celebración navideña un momento inolvidable
+                                </p>
+                                <div style="width: 80px; height: 3px; background: #ffd700; margin: 0 auto;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Servicio 1: Navidad Corporativa -->
+                        <div class="row align-items-center mb-5" style="margin-bottom: 80px;">
+                            <div class="col-lg-6">
+                                <div class="servicio-content" style="padding-right: 40px;">
+                                    <div class="numero-servicio" style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; background: #0a5d2d; color: #ffd700; border-radius: 50%; font-size: 24px; font-weight: 600; margin-bottom: 30px;">1</div>
+                                    <h3 style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 32px; color: #0a5d2d; margin-bottom: 20px;">
+                                        Navidad Corporativa
+                                    </h3>
+                                    <p style="font-size: 18px; line-height: 1.6; color: #666; margin-bottom: 25px;">
+                                       <b> Convierte la fiesta de fin de año</b> en un encuentro inolvidable que <b> enciende la alegría</b> y refuerza la cultura organizacional.
+                                    </p>
+                                    
+                                    <div class="incluye-lista" style="margin-bottom: 30px;">
+                                        <h4 style="font-size: 20px; color: #0a5d2d; margin-bottom: 15px; font-weight: 500;">Incluye:</h4>
+                                        <div class="incluye-item" style="display: flex; align-items: flex-start; margin-bottom: 12px;">
+                                            <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; margin-top: 8px; flex-shrink: 0;"></div>
+                                            <span style="font-size: 16px; color: #555;">Celebración en sede o fiesta de cierre con cóctel, catering, música en vivo, decoración inmersiva y hora loca.</span>
+                                        </div>
+                                        <div class="incluye-item" style="display: flex; align-items: flex-start; margin-bottom: 12px;">
+                                            <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; margin-top: 8px; flex-shrink: 0;"></div>
+                                            <span style="font-size: 16px; color: #555;">Actividades culturales y de integración como encendido de árbol, coros navideños, ferias familiares o voluntariado corporativo.</span>
+                                        </div>
+                                        <div class="incluye-item" style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+                                            <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; margin-top: 8px; flex-shrink: 0;"></div>
+                                            <span style="font-size: 16px; color: #555;">Producción integral: logística, sonido, montaje y registro audiovisual.</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="duracion-info" style="background: rgba(10, 93, 45, 0.1); padding: 15px 20px; border-radius: 10px; margin-bottom: 30px;">
+                                        <strong style="color: #0a5d2d;">Duración:</strong> <span style="color: #666;">3 a 8 horas según formato</span>
+                                    </div>
+                                    
+                                    <a href="https://wa.me/573233131056?text=Hola,%20quiero%20cotizar%20el%20servicio%20de%20Navidad%20Corporativa%20para%20mi%20empresa" target="_blank" class="btn-servicio" style="background: #0a5d2d; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 16px; transition: all 0.3s ease; display: inline-flex; align-items: center;">
+                                        <img src="img/wpp.png" style="width: 20px; margin-right: 10px;" alt="WhatsApp">
+                                        Cotizar Navidad Corporativa
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="servicio-imagen" style="text-align: center; position: relative;">
+                                    <!-- Card integrada: Slider arriba, contenido abajo -->
+                                    <div class="card-integrada" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #e9ecef; min-height: 520px;">
+                                        <!-- Slider de imágenes navideñas 1 - Parte superior -->
+                                        <div class="navidad-slider-container-1" style="position: relative; height: 340px; overflow: hidden;">
+                                            <div class="navidad-slider-1" style="position: relative; height: 100%;">
+                                                <div class="navidad-slide-1" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 0.5s ease;">
+                                                    <img src="img-navidad/na1.jpg" alt="Experiencia navideña corporativa 1" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                <div class="navidad-slide-1" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease;">
+                                                    <img src="img-navidad/people-christman-decorations-man-black-suit-group-celebrations-new-year-people-with-bengal-lights.jpg" alt="Experiencia navideña corporativa 2" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                     
+                                      
+                                            </div>
+                                            
+                                            <!-- Indicadores del slider 1 -->
+                                            <div class="navidad-dots-1" style="position: absolute; top: 15px; right: 15px; display: flex; gap: 6px;">
+                                                <button class="navidad-dot-1 active" onclick="currentNavidadSlide1(1)" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: #ffd700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></button>
+                                                <button class="navidad-dot-1" onclick="currentNavidadSlide1(2)" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.6); cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></button>
+                                            
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Contenido de la card - Parte inferior -->
+                                        <div style="padding: 30px; background: linear-gradient(135deg, #0a5d2d 0%, #1a7a3e 100%); color: white;">
+                                            <h4 style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 24px; margin-bottom: 15px; color: #ffd700;">Experiencia Completa</h4>
+                                            <p style="font-size: 16px; opacity: 0.9; margin-bottom: 0; line-height: 1.5; font-weight: 300;">Desde la planificación hasta la ejecución, nos encargamos de cada detalle para una celebración perfecta.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Servicio 2: Experiencias Selectas -->
+                        <div class="row align-items-center mb-5" style="margin-bottom: 80px;">
+                            <div class="col-lg-6 order-lg-2">
+                                <div class="servicio-content" style="padding-left: 40px;">
+                                    <div class="numero-servicio" style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; background: #0a5d2d; color: #ffd700; border-radius: 50%; font-size: 24px; font-weight: 600; margin-bottom: 30px;">2</div>
+                                    <h3 style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 32px; color: #0a5d2d; margin-bottom: 20px;">
+                                        Experiencias Selectas para Directivos
+                                    </h3>
+                                    <p style="font-size: 18px; line-height: 1.6; color: #666; margin-bottom: 25px;">
+                                        Un detalle exclusivo para quienes lideran. Más que un reconocimiento, un momento íntimo y especial que fortalece la confianza y proyecta grandeza.
+                                    </p>
+                                    
+                                    <div class="incluye-lista" style="margin-bottom: 30px;">
+                                        <h4 style="font-size: 20px; color: #0a5d2d; margin-bottom: 15px; font-weight: 500;">Incluye:</h4>
+                                        <div class="incluye-item" style="display: flex; align-items: flex-start; margin-bottom: 12px;">
+                                            <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; margin-top: 8px; flex-shrink: 0;"></div>
+                                            <span style="font-size: 16px; color: #555;">Cena privada de autor con música en vivo.</span>
+                                        </div>
+                                        <div class="incluye-item" style="display: flex; align-items: flex-start; margin-bottom: 12px;">
+                                            <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; margin-top: 8px; flex-shrink: 0;"></div>
+                                            <span style="font-size: 16px; color: #555;"> Experiencias únicas en Yate con chef a bordo o eventos en locaciones emblemáticas.</span>
+                                        </div>
+                                        <div class="incluye-item" style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+                                            <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; margin-top: 8px; flex-shrink: 0;"></div>
+                                            <span style="font-size: 16px; color: #555;">Producción y logística premium a la medida.</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="duracion-info" style="background: rgba(10, 93, 45, 0.1); padding: 15px 20px; border-radius: 10px; margin-bottom: 30px;">
+                                        <strong style="color: #0a5d2d;">Duración:</strong> <span style="color: #666;">3 a 5 horas</span>
+                                    </div>
+                                    
+                                    <a href="https://wa.me/573233131056?text=Hola,%20quiero%20cotizar%20las%20Experiencias%20Selectas%20para%20Directivos" target="_blank" class="btn-servicio" style="background: #0a5d2d; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 16px; transition: all 0.3s ease; display: inline-flex; align-items: center;">
+                                        <img src="img/wpp.png" style="width: 20px; margin-right: 10px;" alt="WhatsApp">
+                                        Cotizar Experiencia Selecta
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-lg-1">
+                                <div class="servicio-imagen" style="text-align: center; position: relative;">
+                                    <!-- Card integrada: Slider arriba, contenido abajo -->
+                                    <div class="card-integrada" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #e9ecef; min-height: 520px;">
+                                        <!-- Slider de imágenes navideñas 2 - Parte superior -->
+                                        <div class="navidad-slider-container-2" style="position: relative; height: 340px; overflow: hidden;">
+                                            <div class="navidad-slider-2" style="position: relative; height: 100%;">
+                                                <div class="navidad-slide-2" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 0.5s ease;">
+                                                    <img src="img-navidad/navpre.jpg" alt="Experiencia selecta para directivos 1" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                <div class="navidad-slide-2" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease;">
+                                                    <img src="img-navidad/navpre2.jpg" alt="Experiencia selecta para directivos 2" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                <div class="navidad-slide-2" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease;">
+                                                    <img src="img-navidad/navpre.jpg" alt="Experiencia selecta para directivos 3" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                <div class="navidad-slide-2" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease;">
+                                                    <img src="img-navidad/navpre2.jpg" alt="Experiencia selecta para directivos 4" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Indicadores del slider 2 -->
+                                            <div class="navidad-dots-2" style="position: absolute; top: 15px; right: 15px; display: flex; gap: 6px;">
+                                                <button class="navidad-dot-2 active" onclick="currentNavidadSlide2(1)" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: #ffd700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></button>
+                                                <button class="navidad-dot-2" onclick="currentNavidadSlide2(2)" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.6); cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></button>
+                                                <button class="navidad-dot-2" onclick="currentNavidadSlide2(3)" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.6); cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></button>
+                                                <button class="navidad-dot-2" onclick="currentNavidadSlide2(4)" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.6); cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></button>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Contenido de la card - Parte inferior -->
+                                        <div style="padding: 30px; background: linear-gradient(135deg, #ffd700 0%, #e6c200 100%); color: #000;">
+                                            <h4 style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 24px; margin-bottom: 15px; color: #000;">Exclusividad Premium</h4>
+                                            <p style="font-size: 16px; margin-bottom: 0; font-weight: 500; line-height: 1.5; color: #000;">Eventos únicos diseñados especialmente para líderes y directivos que merecen lo mejor.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Servicio 3: Anchetas y Regalos -->
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="servicio-content" style="padding-right: 40px;">
+                                    <div class="numero-servicio" style="display: inline-flex; align-items: center; justify-content: center; width: 60px; height: 60px; background: #0a5d2d; color: #ffd700; border-radius: 50%; font-size: 24px; font-weight: 600; margin-bottom: 30px;">3</div>
+                                    <h3 style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 32px; color: #0a5d2d; margin-bottom: 20px;">
+                                        Anchetas y Regalos Corporativos
+                                    </h3>
+                                    <p style="font-size: 18px; line-height: 1.6; color: #666; margin-bottom: 25px;">
+                                        Cada regalo cuenta una historia de gratitud. Sorprende a clientes, aliados y colaboradores con detalles que transmiten cercanía, orgullo y propósito.
+                                    </p>
+                                    
+                                    <div class="incluye-lista" style="margin-bottom: 30px;">
+                                        <h4 style="font-size: 20px; color: #0a5d2d; margin-bottom: 15px; font-weight: 500;">Incluye:</h4>
+                                        <div class="incluye-item" style="display: flex; align-items: flex-start; margin-bottom: 12px;">
+                                            <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; margin-top: 8px; flex-shrink: 0;"></div>
+                                            <span style="font-size: 16px; color: #555;">Anchetas premium personalizadas con productos locales and artesanales.</span>
+                                        </div>
+                                        <div class="incluye-item" style="display: flex; align-items: flex-start; margin-bottom: 12px;">
+                                            <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; margin-top: 8px; flex-shrink: 0;"></div>
+                                            <span style="font-size: 16px; color: #555;">Kits temáticos con identidad de marca (mugs, vinos, cafés y accesorios con propósito).</span>
+                                        </div>
+                                        <div class="incluye-item" style="display: flex; align-items: flex-start; margin-bottom: 20px;">
+                                            <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; margin-top: 8px; flex-shrink: 0;"></div>
+                                            <span style="font-size: 16px; color: #555;">Opciones sostenibles con empaques de diseño especial.</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="ventaja-info" style="background: rgba(255, 215, 0, 0.1); padding: 15px 20px; border-radius: 10px; margin-bottom: 30px;">
+                                        <strong style="color: #0a5d2d;">Ventaja:</strong> <span style="color: #666;">Personalización completa con la identidad de tu marca</span>
+                                    </div>
+                                    
+                                    <a href="https://wa.me/573233131056?text=Hola,%20quiero%20cotizar%20Anchetas%20y%20Regalos%20Corporativos%20para%20Navidad" target="_blank" class="btn-servicio" style="background: #0a5d2d; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 16px; transition: all 0.3s ease; display: inline-flex; align-items: center;">
+                                        <img src="img/wpp.png" style="width: 20px; margin-right: 10px;" alt="WhatsApp">
+                                        Cotizar Regalos Corporativos
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="servicio-imagen" style="text-align: center; position: relative;">
+                                    <!-- Card integrada: Slider arriba, contenido abajo -->
+                                    <div class="card-integrada" style="background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid #e9ecef; min-height: 520px;">
+                                        <!-- Slider de imágenes navideñas 3 - Parte superior -->
+                                        <div class="navidad-slider-container-3" style="position: relative; height: 340px; overflow: hidden;">
+                                            <div class="navidad-slider-3" style="position: relative; height: 100%;">
+                                                <div class="navidad-slide-3" style="position: absolute; width: 100%; height: 100%; opacity: 1; transition: opacity 0.5s ease;">
+                                                    <img src="img-navidad/ANCHETA CLÁSICA.webp" alt="Regalos corporativos navideños 1" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                <div class="navidad-slide-3" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease;">
+                                                    <img src="img-navidad/ANCHETA ESPECIAL.webp" alt="Regalos corporativos navideños 2" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                <div class="navidad-slide-3" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease;">
+                                                    <img src="img-navidad/ANCHETA PREMIUM.webp" alt="Regalos corporativos navideños 3" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                                <div class="navidad-slide-3" style="position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.5s ease;">
+                                                    <img src="img-navidad/ANCHETAS MERCHANDAISING .webp" alt="Regalos corporativos navideños 4" style="width: 100%; height: 100%; object-fit: cover;">
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Indicadores del slider 3 -->
+                                            <div class="navidad-dots-3" style="position: absolute; top: 15px; right: 15px; display: flex; gap: 6px;">
+                                                <button class="navidad-dot-3 active" onclick="currentNavidadSlide3(1)" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: #ffd700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></button>
+                                                <button class="navidad-dot-3" onclick="currentNavidadSlide3(2)" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.6); cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></button>
+                                                <button class="navidad-dot-3" onclick="currentNavidadSlide3(3)" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.6); cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></button>
+                                                <button class="navidad-dot-3" onclick="currentNavidadSlide3(4)" style="width: 10px; height: 10px; border-radius: 50%; border: none; background: rgba(255, 255, 255, 0.6); cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 4px rgba(0,0,0,0.3);"></button>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Contenido de la card - Parte inferior -->
+                                        <div style="padding: 30px; background: linear-gradient(135deg, #1a7a3e 0%, #0a5d2d 100%); color: white;">
+                                            <h4 style="font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 24px; margin-bottom: 15px; color: #ffd700;">Regalos con Propósito</h4>
+                                            <p style="font-size: 16px; opacity: 0.9; margin-bottom: 0; line-height: 1.5; font-weight: 300;">Detalles únicos que fortalecen relaciones y proyectan los valores de tu empresa.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== Call to Action Principal ==================== -->
+                <section class="cta-principal" style="padding: 80px 0; background: linear-gradient(135deg, #0a5d2d 0%, #1a7a3e 50%, #2d8f4e 100%); color: white; position: relative;">
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <h2 style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 44px; margin-bottom: 25px; color: #ffd700;">
+                                    <span style="font-weight: 600;">Contáctanos</span> y diseñemos juntos tu experiencia de Navidad con Magna
+                                </h2>
+                                <p style="font-size: 20px; line-height: 1.6; margin-bottom: 40px; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto;">
+                                    Este año, haz que tu empresa celebre con sentido, elegancia y memorabilidad. Cada detalle cuenta para crear memorias inolvidables.
+                                </p>
+                                
+                                <div class="cta-buttons" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                                    <a href="https://wa.me/573233131056?text=Hola,%20quiero%20conocer%20todos%20los%20servicios%20navideños%20de%20Magna%20para%20mi%20empresa" target="_blank" class="btn-cta-principal" style="background: #ffd700; color: #0a5d2d; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 18px; transition: all 0.3s ease; display: inline-flex; align-items: center; box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);">
+                                        <img src="img/wpp.png" style="width: 24px; margin-right: 12px;" alt="WhatsApp">
+                                        Habla con un Asesor
+                                    </a>
+                                    <a href="#contacto" class="btn-cta-secundario" style="background: transparent; color: white; border: 2px solid #ffd700; padding: 16px 35px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 18px; transition: all 0.3s ease; display: inline-flex; align-items: center;">
+                                        Contáctenos 
+                                    </a>
+                                </div>
+                                
+                                <div class="garantias-cta" style="margin-top: 40px; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;">
+                                    <div style="text-align: center;">
+                                        <div style="color: #ffd700; font-size: 20px; margin-bottom: 8px;">✓</div>
+                                        <span style="font-size: 18px; opacity: 0.8;">Propuesta en 24h</span>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <div style="color: #ffd700; font-size: 20px; margin-bottom: 8px;">✓</div>
+                                        <span style="font-size: 18px; opacity: 0.8;">Asesoría gratuita</span>
+                                    </div>
+                                    <div style="text-align: center;">
+                                        <div style="color: #ffd700; font-size: 20px; margin-bottom: 8px;">✓</div>
+                                        <span style="font-size: 18px; opacity: 0.8;">Sin compromiso</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Elementos decorativos -->
+                    <div style="position: absolute; top: 20px; left: 20px; color: #ffd700; font-size: 24px; opacity: 0.3;">*</div>
+                    <div style="position: absolute; bottom: 30px; right: 30px; color: #ffd700; font-size: 20px; opacity: 0.4;">+</div>
+                    <div style="position: absolute; top: 50%; right: 10px; color: #ffd700; font-size: 18px; opacity: 0.3;">•</div>
+                    <div style="position: absolute; bottom: 60px; left: 50px; color: #ffd700; font-size: 16px; opacity: 0.4;">×</div>
+                </section>
+
+                <!-- ==================== Invitación a Realizar el Evento ==================== -->
+                <section class="invitacion-evento" style="padding: 100px 0; background: #ffffff; position: relative;">
+                    <div class="container">
+                        <div class="row text-center">
+                            <div class="col-12">
+                                <h2 style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 40px; margin-bottom: 30px; color: #0a5d2d; line-height: 1.3;">
+                                    ¿Listo para crear <span style="font-weight: 600; color: #ffd700;">memorias navideñas</span> inolvidables?
+                                </h2>
+                                <p style="font-size: 20px; line-height: 1.6; color: #666; margin-bottom: 50px; max-width: 800px; margin-left: auto; margin-right: auto; font-weight: 300;">
+                                    En Magna transformamos la celebración navideña de tu empresa en una experiencia que conecta corazones, fortalece equipos y crea recuerdos que perduran para toda la vida.
+                                </p>
+                            </div>
+                        </div>
+                        
+
+                        
+
+                    </div>
+                </section>
+
+                <!-- ==================== Módulo Cotización Navideña ==================== -->
+                <section class="cotizacion-navidad" style="padding: 80px 0; background: linear-gradient(135deg, #0a5d2d 0%, #1a7a3e 100%); color: white; position: relative;">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-8">
+                                <div class="cotizacion-content">
+                                    <h2 style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 38px; margin-bottom: 20px; color: #ffd700;">
+                                        ¿Ya sabes que experiencia quieres? 
+                                        <span style="font-weight: 600; color: white;">¡Pide tu cotización!</span>
+                                    </h2>
+                                    <p style="font-size: 18px; line-height: 1.6; margin-bottom: 25px; opacity: 0.9; font-weight: 300;">
+                                        Nuestro equipo especializado diseñará una propuesta personalizada para hacer realidad tu celebración navideña ideal. Sin compromiso, solo ideas brillantes.
+                                    </p>
+                                    <div class="beneficios-cotizacion" style="margin-bottom: 30px;">
+                                        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                                            <div style="width: 6px; height: 6px; background: #ffd700; border-radius: 50%; margin-right: 12px;"></div>
+                                            <span style="font-size: 16px; font-weight: 300;">Propuesta personalizada en 24 horas</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                                            <div style="width: 6px; height: 6px; background: #ffd700; border-radius: 50%; margin-right: 12px;"></div>
+                                            <span style="font-size: 16px; font-weight: 300;">Asesoría especializada sin costo</span>
+                                        </div>
+                                        <div style="display: flex; align-items: center;">
+                                            <div style="width: 6px; height: 6px; background: #ffd700; border-radius: 50%; margin-right: 12px;"></div>
+                                            <span style="font-size: 16px; font-weight: 300;">Presupuesto detallado y transparente</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 text-center">
+                                <div class="cotizacion-cta">
+                                    <a href="https://wa.me/573233131056?text=Hola,%20quiero%20solicitar%20una%20cotización%20para%20mi%20fiesta%20de%20Navidad%20con%20Magna" target="_blank" class="btn-cotizacion" style="background: #ffd700; color: #0a5d2d; padding: 18px 40px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 18px; transition: all 0.3s ease; display: inline-flex; align-items: center; box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);">
+                                        <img src="img/wpp.png" style="width: 24px; margin-right: 12px;" alt="WhatsApp">
+                                        Solicitar Cotización
+                                    </a>
+                                    <p style="font-size: 14px; margin-top: 15px; opacity: 0.8; font-weight: 300;">
+                                        Respuesta inmediata • Sin compromiso
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Elementos decorativos -->
+                    <div style="position: absolute; top: 30px; left: 30px; color: #ffd700; font-size: 20px; opacity: 0.3;">•</div>
+                    <div style="position: absolute; bottom: 40px; right: 40px; color: #ffd700; font-size: 18px; opacity: 0.4;">+</div>
+                    <div style="position: absolute; top: 60%; right: 20px; color: #ffd700; font-size: 16px; opacity: 0.3;">*</div>
+                </section>
+
+                <!-- ==================== Diferencial Magna ==================== -->
+                <section class="diferencial-magna" style="padding: 100px 0; background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <h2 style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 42px; color: #0a5d2d; margin-bottom: 30px; line-height: 1.2;">
+                                    En Magna no organizamos eventos: <span style="font-weight: 600;">diseñamos experiencias con propósito</span>
+                                </h2>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="beneficios-lista">
+                                    <div class="beneficio-item" style="display: flex; align-items: center; margin-bottom: 20px;">
+                                        <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; flex-shrink: 0;"></div>
+                                        <span style="font-size: 18px; color: #333; font-weight: 300;">Cultura y conexión emocional.</span>
+                                    </div>
+                                    <div class="beneficio-item" style="display: flex; align-items: center; margin-bottom: 20px;">
+                                        <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; flex-shrink: 0;"></div>
+                                        <span style="font-size: 18px; color: #333; font-weight: 300;">Impacto social real.</span>
+                                    </div>
+                                    <div class="beneficio-item" style="display: flex; align-items: center; margin-bottom: 20px;">
+                                        <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; flex-shrink: 0;"></div>
+                                        <span style="font-size: 18px; color: #333; font-weight: 300;">Producción integral de principio a fin.</span>
+                                    </div>
+                                    <div class="beneficio-item" style="display: flex; align-items: center; margin-bottom: 30px;">
+                                        <div style="width: 8px; height: 8px; background: #ffd700; border-radius: 50%; margin-right: 15px; flex-shrink: 0;"></div>
+                                        <span style="font-size: 18px; color: #333; font-weight: 300;">Experiencias memorables para todos los públicos.</span>
+                                    </div>
+                                    <a href="https://wa.me/573233131056?text=Hola,%20quiero%20solicitar%20una%20cotización%20para%20mi%20fiesta%20de%20Navidad%20con%20Magna" class="btn-diferencial" style="background: #0a5d2d; color: white; padding: 15px 35px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 16px; transition: all 0.3s ease; display: inline-block;">
+                                        Hablemos de tu experiencia navideña
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== Contacto Directo ==================== -->
+                <section id="contacto" class="contacto-navidad" style="padding: 100px 0; background: #0a5d2d; color: white;">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h2 style="font-family: 'Poppins', sans-serif; font-weight: 300; font-size: 42px; margin-bottom: 30px; color: #ffd700;">
+                                    Planea tu <span style="font-weight: 600;">Navidad</span> con nosotros
+                                </h2>
+                                <p style="font-size: 18px; line-height: 1.6; margin-bottom: 30px; opacity: 0.9; font-weight: 300;">
+                                    Cuéntanos qué experiencia navideña tienes en mente y diseñaremos juntos una celebración memorable.
+                                </p>
+                                <a href="https://wa.me/573233131056?text=Hola,%20quiero%20planear%20mi%20experiencia%20navideña%20con%20Magna" target="_blank" class="btn-whatsapp" style="background: #25d366; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 500; font-size: 16px; transition: all 0.3s ease; display: inline-flex; align-items: center; margin-bottom: 30px;">
+                                    <img src="img/wpp.png" style="width: 20px; margin-right: 10px;" alt="WhatsApp">
+                                    Planea tu Navidad
+                                </a>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="formulario-contacto" style="background: rgba(255,255,255,0.1); padding: 40px; border-radius: 15px; backdrop-filter: blur(10px);">
+                                    <form action="zsuscripcion.php" method="POST">
+                                        <div class="form-group" style="margin-bottom: 20px;">
+                                            <input type="text" name="nombre" placeholder="Nombre completo" required style="width: 100%; padding: 15px; border: none; border-radius: 8px; background: rgba(255,255,255,0.9); font-size: 16px;">
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 20px;">
+                                            <input type="text" name="empresa" placeholder="Empresa" required style="width: 100%; padding: 15px; border: none; border-radius: 8px; background: rgba(255,255,255,0.9); font-size: 16px;">
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 20px;">
+                                            <select name="tipo_experiencia" required style="width: 100%; padding: 15px; border: none; border-radius: 8px; background: rgba(255,255,255,0.9); font-size: 16px;">
+                                                <option value="">Navidad Corporativa</option>
+                                                <option value="cultura-impacto">Experiencias Selectas para Directivos</option>
+                                                <option value="magia-selecta">Anchetas y Regalos Corporativos</option>
+                                    
+                                            </select>
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 20px;">
+                                            <input type="tel" name="telefono" placeholder="Teléfono" required style="width: 100%; padding: 15px; border: none; border-radius: 8px; background: rgba(255,255,255,0.9); font-size: 16px;">
+                                        </div>
+                                        <div class="form-group" style="margin-bottom: 30px;">
+                                            <input type="email" name="email" placeholder="Email" required style="width: 100%; padding: 15px; border: none; border-radius: 8px; background: rgba(255,255,255,0.9); font-size: 16px;">
+                                        </div>
+                                        <button type="submit" style="width: 100%; background: #ffd700; color: #0a5d2d; padding: 15px; border: none; border-radius: 8px; font-weight: 600; font-size: 16px; cursor: pointer; transition: all 0.3s ease;">
+                                            Enviar solicitud
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                
+                
+                <!-- ==================Google Maps ==================== -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4417596341887!2d-75.58966862459012!3d6.205312426778276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4682779e933a17%3A0xbd1787e3f03272fc!2sCl.%206%20Sur%20%2352-18%2C%20Guayabal%2C%20Medell%C3%ADn%2C%20Guayabal%2C%20Medell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1738342805721!5m2!1ses!2sco" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                               <!-- ==================Subscripcion Magna ==================== -->
+                                <header class="page-header section-padding sub-bg" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); background-color: #ff5a27; font-family:  font-family: 'Poppins';margin-top:-5%;">
+                                    <div class="container mt-80" bis_skin_checked="1" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">
+                                        <div class="row" bis_skin_checked="1">
+                                            <div class="col-lg-7" bis_skin_checked="1">
+                                                <div class="caption" bis_skin_checked="1">
+                                                    <h1 class="fz-55">Únete a nuestra misión. <br>
+                                                        </h1>  <h2>¡Recibe nuestras actualizaciones!</h2><br>
+                                                        <p style="color:#fff;">
+                                                            En Magna, estamos comprometidos con un futuro más justo, inclusivo y sostenible. 
+                                                            Si compartes esta visión, te invitamos a sumarte como aliado, cliente o colaborador 
+                                                            para construir juntos soluciones que transformen vidas y regeneren el mundo.</p>
+                                                </div>
+                                            </div>
+                                       <br><br>
+
+                                           
+                                            <form action="zsuscripcion.php" method="POST" style="display: inline-block; white-space: nowrap;margin-top:50px;">
+                                                    <input
+                                                        type="text"
+                                                        name="email"
+                                                        class="B-input-field"
+                                                        placeholder="Correo electronico"
+                                                        style="width:70%; height:60px; background-color:#fff; color:black; display:inline-block; vertical-align:middle; margin-right:8px;"
+                                                        required
+                                                    >
+                                                    <button
+                                                        class="B-submit-button"
+                                                        type="submit"
+                                                        style="background-color: black; height:60px; color:#fff; display:inline-block; vertical-align:middle;"
+                                                    >
+                                                        Enviar <span class="B-arrow">→</span>
+                                                    </button>
+                                                </form>
+                                            </div>
+
+
+                                            <!-- ==================Footer Magna ==================== -->
+                                            <div class="row" bis_skin_checked="1" style="margin-top: 7%;color:#fff;">
+                                                <div class="col-lg-3" bis_skin_checked="1">
+                                                    <div class="colum md-mb50" bis_skin_checked="1">
+                                                        <div class="tit mb-20" bis_skin_checked="1">
+                                                            <h6>Magna Comunicaciones</h6>
+                                                        </div>
+                                                    <div class="text" bis_skin_checked="1">
+                                                        <a href="index.html"><p style="color:#fff;">Inicio</p></a><br>
+                                                        <a href="somos.html"><p style="color:#fff;">Somos Magna</p></a><br>
+                                                        <a href="como.html"><p style="color:#fff;">¿Cómo lo hacemos?</p></a><br>
+                                                        <a href="servicios.html"><p style="color:#fff;">Servicios</p></a><br>
+                                                        <a href="conversemos.html"><p style="color:#fff;">Conversemos</p></a><br>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-lg-3 offset-lg-1" bis_skin_checked="1" style="color:#fff;">
+                                                    <div class="colum md-mb50" bis_skin_checked="1">
+                                                        <div class="tit mb-20" bis_skin_checked="1">
+                                                            <h6>Transparecia</h6>
+                                                        </div>
+                                                        <div class="text" bis_skin_checked="1">
+                                                            
+                                                            <a Target="_blank" href="pdf/Informe de Gestión 2024.pdf"><p style="color:#fff;">Informe de Gestión</p></a><br>
+                                                                <a  Target="_blank"href="pdf/términos.pdf"><p style="color:#fff;">Ética y Gobierno</p></a><br>
+                                                      
+                                                            
+                                                                                                                      
+                                                            
+                                                                                                                                                                       
+                                                            
+                                                                                                                      
+                                                            
+                                                                                                                 
+                                                                                                                  
+                                                            
+                                                                                                                      
+                                                            
+                                                                                                                 
+                                                            
+                                                            <br>
+                                                            
+                                                                <a Target="_blank" href="pdf/términos.pdf"><p style="color:#fff;">Uso de datos</p></a><br>
+                                                                <a  Target="_blank"href="pdf/términos.pdf"><p style="color:#fff;">Políticas de calidad</p></a><br>
+                                                                <a Target="_blank" href="pdf/términos.pdf"><p style="color:#fff;">Términos y Condiciones</p></a><br><br><br>
+                                                            </div>
+                                                            
+                                                           
+                                                            
+                                                            <h5>
+                                                                <a href="https://wa.me/573233131056?text=Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n"> <img src="img/tel.png" style="width:19px;">&nbsp;+57 323-3131056 </a><br>
+                                                                 <a Target="_blank" href="https://maps.app.goo.gl/RywMLcG1CU2pwLMaA"> <img src="img/ubi.png" style="width:19px;">&nbsp;&nbsp;Calle 6 sur #52-18</a>
+                                                            </h5>
+                                                        </div>
+                                                </div>
+                                                
+                                                
+                                                
+                                                <div class="col-lg-3 offset-lg-1" bis_skin_checked="1" style="color:#fff;">
+                                                    <div class="colum md-mb50" bis_skin_checked="1">
+                                                        <div class="tit mb-20" bis_skin_checked="1">
+                                                        <h6>Social</h6>
+                                                    </div>
+                                                    
+                                                    <ul class="rest social-text">
+                                                        <li>
+                                                            <a  Target="_blank" href="https://www.facebook.com/share/12DeqKghFYm/?mibextid=wwXIfr
+                                                            " bis_skin_checked="1">Facebook</a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a  Target="_blank" href="https://www.instagram.com/magnacomunicaciones.co?igsh=MTNnbzNzeHUxaGZxaQ==" bis_skin_checked="1">Instagram</a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a  Target="_blank" href="https://www.linkedin.com/company/magnacomunicaciones/" bis_skin_checked="1">Linkedin</a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a  Target="_blank" href="https://www.tiktok.com/@magnacomunicaciones.co?_t=ZS-8tVJIJ3JLxn&_r=1" bis_skin_checked="1">Tiktok</a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a  Target="_blank" href="https://x.com/magnacomco?s=21 " bis_skin_checked="1">X</a>
+                                                        </li>
+                                                        
+                                                         <li>
+                                                            <a  Target="_blank" href="https://magnacomunicacionesco.blogspot.com/" bis_skin_checked="1">Blog</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                </div>
+                                                <br><br><br><br>
+                                                <h1 style="font-size: 90px;margin-left: 0%; position: relative;"> 
+                                                        <div class="unique-slider-social-icons">
+                                                        <a Target="_blank" href="https://www.facebook.com/share/12DeqKghFYm/?mibextid=wwXIfr" class="unique-slider-icon"><img src="img/face.png" style="width: 35px;"></img></a>
+                                                        <a Target="_blank" href="https://www.instagram.com/magnacomunicaciones.co?igsh=MTNnbzNzeHUxaGZxaQ==" class="unique-slider-icon"><img src="img/insta.png" style="width: 35px;"></img></a>
+                                                        <a Target="_blank" href="https://wa.me/573233131056?text=Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n" class="unique-slider-icon"><img src="img/wpp.png" style="width: 35px;"></img></a> 
+                                                        <a Target="_blank" href="https://x.com/magnacomco?s=21" class="unique-slider-icon"><img src="img/x.png" style="width: 35px;"></img></a>
+                                                        <a Target="_blank" href="https://www.linkedin.com/company/magnacomunicaciones" class="unique-slider-icon"><img src="img/li.png" style="width: 35px;"></img></i></a>
+                                                        <a Target="_blank" href="https://www.tiktok.com/@magnacomunicaciones.co?_t=ZS-8tVJIJ3JLxn&_r=1" class="unique-slider-icon"><img src="img/tik.png" style="width: 35px;"></img></i></a></div> 
+                                                        <a href="index.html">2026</a>
+                                                </h1>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </header>
+                                <!-- ==================Fin Subscripcion Magna ==================== -->
+                                <!-- ==================Fin Footer Magna ==================== -->
+
+
+            
+
+
+
+<!-- jQuery -->
+<script src="assets/js/jquery-3.6.0.min.js"></script>
+<script src="assets/js/jquery-migrate-3.4.0.min.js"></script>
+
+<!-- plugins -->
+<script src="assets/js/plugins.js"></script>
+
+    <script src="assets/js/gsap.min.js"></script>
+    <!-- ScrollSmoother DESHABILITADO - causaba problemas de scroll -->
+    <!-- <script src="assets/js/ScrollSmoother.min.js"></script> -->
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <!-- smoother-script DESHABILITADO - causaba problemas de scroll -->
+    <!-- <script src="assets/js/smoother-script.js"></script> --><script>
+    // Slider functionality with auto slide
+    const sliderImages = document.getElementById('sliderImages');
+    const dots = document.querySelectorAll('.R-slider-dots button');
+    let currentIndex = 0;
+
+    function updateSlider(index) {
+        sliderImages.style.transform = `translateX(-${index * 800}px)`;
+        dots.forEach(dot => dot.classList.remove('active'));
+        dots[index].classList.add('active');
+    }
+
+    function autoSlide() {
+        currentIndex = (currentIndex + 1) % dots.length;
+        updateSlider(currentIndex);
+    }
+
+    let autoSlideInterval = setInterval(autoSlide, 3000); // Change every 3 seconds
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            clearInterval(autoSlideInterval); // Stop auto slide on manual interaction
+            updateSlider(index);
+            currentIndex = index;
+            autoSlideInterval = setInterval(autoSlide, 3000); // Restart auto slide
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+const sliderContainer = document.querySelector('.L-slider .slides');
+const sliderControls = document.querySelectorAll('.L-slider .control');
+let currentSlide = 0;
+const totalSlides = sliderControls.length;
+const slideWidth = 100; // Assuming each slide takes 100% width
+
+function goToSlide(index) {
+    sliderContainer.style.transform = `translateX(-${index * slideWidth}%)`;
+    updateControls(index);
+}
+
+function updateControls(index) {
+    sliderControls.forEach(control => control.classList.remove('active'));
+    sliderControls[index].classList.add('active');
+}
+
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % totalSlides;
+    goToSlide(currentSlide);
+}
+
+// Initialize control click events
+sliderControls.forEach((control, index) => {
+    control.addEventListener('click', () => {
+        currentSlide = index;
+        goToSlide(currentSlide);
+    });
+});
+
+// Automatic slider
+setInterval(nextSlide, 5000);
+
+// Start the slider at the first slide
+goToSlide(currentSlide);
+});
+
+// Deshabilitar solo las animaciones del banner principal
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        // Deshabilitar animaciones específicas del banner/slider
+        const bannerElements = document.querySelectorAll('.slider, .parallax-slider, .swiper-slide, .caption, .wtitulo');
+        bannerElements.forEach(element => {
+            gsap.killTweensOf(element);
+        });
+        
+        // Deshabilitar solo los ScrollTriggers relacionados con el banner
+        if (typeof ScrollTrigger !== 'undefined') {
+            ScrollTrigger.getAll().forEach(trigger => {
+                // Solo deshabilitar triggers que afecten elementos del banner
+                if (trigger.trigger && (
+                    trigger.trigger.closest('.slider') || 
+                    trigger.trigger.closest('.parallax-slider') ||
+                    trigger.trigger.classList.contains('slider') ||
+                    trigger.trigger.classList.contains('parallax-slider')
+                )) {
+                    trigger.disable();
+                }
+            });
+        }
+    }, 100);
+});
+</script>
+
+    <!-- ==================== Corrección Final de Scroll ==================== -->
+    <script>
+        // Script directo para asegurar que el scroll funcione
+        function forceScrollEnabled() {
+            // Habilitar scroll en elementos principales
+            document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
+            
+            const smoothWrapper = document.getElementById('smooth-wrapper');
+            const smoothContent = document.getElementById('smooth-content');
+            
+            if (smoothWrapper) {
+                smoothWrapper.style.height = 'auto';
+                smoothWrapper.style.overflow = 'visible';
+                smoothWrapper.style.position = 'relative';
+            }
+            
+            if (smoothContent) {
+                smoothContent.style.height = 'auto';
+                smoothContent.style.overflow = 'visible';
+                smoothContent.style.position = 'relative';
+            }
+            
+            // Remover cualquier clase problemática
+            document.body.classList.remove('loading');
+            
+            console.log('Scroll forzado a funcionar en como.html');
+        }
+        
+        // Ejecutar múltiples veces para asegurar que funcione
+        document.addEventListener('DOMContentLoaded', forceScrollEnabled);
+        window.addEventListener('load', forceScrollEnabled);
+        setTimeout(forceScrollEnabled, 1000);
+        setTimeout(forceScrollEnabled, 3000);
+        setTimeout(forceScrollEnabled, 5000);
+    </script>
+    <!-- ==================== Fin Corrección Final de Scroll ==================== -->
+
+    <!-- ==================== Slider Navidad JavaScript ==================== -->
+    <script>
+        // Variables globales para los 3 sliders de navidad
+        let navidadSlideIndex1 = 1;
+        let navidadSlideIndex2 = 1;
+        let navidadSlideIndex3 = 1;
+        
+        // Funciones para slider 1 (Experiencia Completa)
+        function currentNavidadSlide1(n) {
+            showNavidadSlides1(navidadSlideIndex1 = n);
+        }
+        
+        function showNavidadSlides1(n) {
+            const slides = document.querySelectorAll('.navidad-slide-1');
+            const dots = document.querySelectorAll('.navidad-dot-1');
+            
+            if (n > slides.length) { navidadSlideIndex1 = 1; }
+            if (n < 1) { navidadSlideIndex1 = slides.length; }
+            
+            slides.forEach(slide => slide.style.opacity = '0');
+            dots.forEach(dot => {
+                dot.style.background = 'rgba(255, 255, 255, 0.5)';
+                dot.classList.remove('active');
+            });
+            
+            if (slides[navidadSlideIndex1 - 1]) {
+                slides[navidadSlideIndex1 - 1].style.opacity = '1';
+            }
+            if (dots[navidadSlideIndex1 - 1]) {
+                dots[navidadSlideIndex1 - 1].style.background = '#ffd700';
+                dots[navidadSlideIndex1 - 1].classList.add('active');
+            }
+        }
+        
+        // Funciones para slider 2 (Exclusividad Premium)
+        function currentNavidadSlide2(n) {
+            showNavidadSlides2(navidadSlideIndex2 = n);
+        }
+        
+        function showNavidadSlides2(n) {
+            const slides = document.querySelectorAll('.navidad-slide-2');
+            const dots = document.querySelectorAll('.navidad-dot-2');
+            
+            if (n > slides.length) { navidadSlideIndex2 = 1; }
+            if (n < 1) { navidadSlideIndex2 = slides.length; }
+            
+            slides.forEach(slide => slide.style.opacity = '0');
+            dots.forEach(dot => {
+                dot.style.background = 'rgba(255, 255, 255, 0.6)';
+                dot.classList.remove('active');
+            });
+            
+            if (slides[navidadSlideIndex2 - 1]) {
+                slides[navidadSlideIndex2 - 1].style.opacity = '1';
+            }
+            if (dots[navidadSlideIndex2 - 1]) {
+                dots[navidadSlideIndex2 - 1].style.background = '#ffd700';
+                dots[navidadSlideIndex2 - 1].classList.add('active');
+            }
+        }
+        
+        // Funciones para slider 3 (Regalos con Propósito)
+        function currentNavidadSlide3(n) {
+            showNavidadSlides3(navidadSlideIndex3 = n);
+        }
+        
+        function showNavidadSlides3(n) {
+            const slides = document.querySelectorAll('.navidad-slide-3');
+            const dots = document.querySelectorAll('.navidad-dot-3');
+            
+            if (n > slides.length) { navidadSlideIndex3 = 1; }
+            if (n < 1) { navidadSlideIndex3 = slides.length; }
+            
+            slides.forEach(slide => slide.style.opacity = '0');
+            dots.forEach(dot => {
+                dot.style.background = 'rgba(255, 255, 255, 0.5)';
+                dot.classList.remove('active');
+            });
+            
+            if (slides[navidadSlideIndex3 - 1]) {
+                slides[navidadSlideIndex3 - 1].style.opacity = '1';
+            }
+            if (dots[navidadSlideIndex3 - 1]) {
+                dots[navidadSlideIndex3 - 1].style.background = '#ffd700';
+                dots[navidadSlideIndex3 - 1].classList.add('active');
+            }
+        }
+        
+        // Auto-slide para los 3 sliders
+        function autoNavidadSlide1() {
+            navidadSlideIndex1++;
+            showNavidadSlides1(navidadSlideIndex1);
+        }
+        
+        function autoNavidadSlide2() {
+            navidadSlideIndex2++;
+            showNavidadSlides2(navidadSlideIndex2);
+        }
+        
+        function autoNavidadSlide3() {
+            navidadSlideIndex3++;
+            showNavidadSlides3(navidadSlideIndex3);
+        }
+        
+        // Inicializar sliders cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', function() {
+            // Slider 1
+            if (document.querySelector('.navidad-slider-container-1')) {
+                showNavidadSlides1(navidadSlideIndex1);
+                setInterval(autoNavidadSlide1, 4000);
+            }
+            
+            // Slider 2
+            if (document.querySelector('.navidad-slider-container-2')) {
+                showNavidadSlides2(navidadSlideIndex2);
+                setInterval(autoNavidadSlide2, 4500);
+            }
+            
+            // Slider 3
+            if (document.querySelector('.navidad-slider-container-3')) {
+                showNavidadSlides3(navidadSlideIndex3);
+                setInterval(autoNavidadSlide3, 5000);
+            }
+        });
+    </script>
+    <!-- ==================== Fin Slider Navidad JavaScript ==================== -->
+
+<script src="assets/js/scripts.js"></script>
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+  const params = new URLSearchParams(window.location.search);
+  if (params.get('enviado') === '1') {
+    document.getElementById('mensaje-exito-navidad').style.display = 'block';
+    alert('¡Tu solicitud fue enviada correctamente! Pronto nos pondremos en contacto.');
+    setTimeout(function(){
+      document.getElementById('mensaje-exito-navidad').style.display = 'none';
+    }, 6000);
+  }
+});
+</script>
+<div id="mensaje-exito-navidad" style="display:none;position:fixed;top:30px;left:50%;transform:translateX(-50%);background:#25d366;color:white;padding:18px 40px;border-radius:30px;z-index:9999;font-size:18px;box-shadow:0 4px 16px rgba(0,0,0,0.15);font-family:'Poppins',sans-serif;font-weight:500;">
+    ¡Tu solicitud fue enviada correctamente! Pronto nos pondremos en contacto.
+</div>
+</html>

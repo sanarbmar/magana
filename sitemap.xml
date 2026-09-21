@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- =============================== PÁGINA PRINCIPAL =============================== -->
+  <url>
+    <loc>https://magnacomunicaciones.com/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/logo.svg</image:loc>
+      <image:caption>Magna Comunicaciones - Agencia líder de comunicación estratégica en Medellín</image:caption>
+      <image:title>Logo Magna Comunicaciones</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/slider.jpg</image:loc>
+      <image:caption>Magna Comunicaciones - 17 años transformando ideas en soluciones estratégicas</image:caption>
+      <image:title>Banner Principal Magna</image:title>
+    </image:image>
+  </url>
+  
+  <!-- =============================== PÁGINAS CORPORATIVAS PRINCIPALES =============================== -->
+  <url>
+    <loc>https://magnacomunicaciones.com/somos.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/somos.jpg</image:loc>
+      <image:caption>Somos Magna - Equipo de profesionales especializados en comunicación estratégica</image:caption>
+      <image:title>Equipo Magna Comunicaciones</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://magnacomunicaciones.com/servicios.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/servi.jpg</image:loc>
+      <image:caption>Servicios de comunicación 360°, eventos corporativos y diseño estratégico</image:caption>
+      <image:title>Servicios Magna Comunicaciones</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://magnacomunicaciones.com/como.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/como.jpg</image:loc>
+      <image:caption>Metodología Magna - Design Thinking y soluciones innovadoras</image:caption>
+      <image:title>Metodología Magna</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://magnacomunicaciones.com/conversemos.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/conversemos.jpg</image:loc>
+      <image:caption>Contáctanos - Oficinas en Medellín, atención personalizada</image:caption>
+      <image:title>Contacto Magna Comunicaciones</image:title>
+    </image:image>
+  </url>
+
+  <!-- =============================== SERVICIOS ESPECIALIZADOS POR SECTORES =============================== -->
+  <url>
+    <loc>https://magnacomunicaciones.com/gobiernos.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/gobiernos-hero.jpg</image:loc>
+      <image:caption>Magna Gobiernos - Comunicación estratégica gubernamental y desarrollo territorial</image:caption>
+      <image:title>Servicios para Gobiernos</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://magnacomunicaciones.com/empresas.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/empresas-hero.jpg</image:loc>
+      <image:caption>Magna Empresas - Soluciones para PYMEs, diseño estratégico y sostenibilidad</image:caption>
+      <image:title>Servicios para Empresas</image:title>
+    </image:image>
+  </url>
+  
+  <url>
+    <loc>https://magnacomunicaciones.com/personas.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/personas-hero.jpg</image:loc>
+      <image:caption>Magna Personas - Formación en liderazgo y marca personal</image:caption>
+      <image:title>Servicios para Personas</image:title>
+    </image:image>
+  </url>
+
+  <!-- =============================== PROGRAMAS ESPECIALES =============================== -->
+  <url>
+    <loc>https://magnacomunicaciones.com/magna-sei.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/magna-sei-hero.jpg</image:loc>
+      <image:caption>Magna SEI - Tu legado es tu marca personal. Programa transformador de 4 meses</image:caption>
+      <image:title>Programa Magna SEI</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/magna-sei-metodologia.jpg</image:loc>
+      <image:caption>Metodología Magna SEI - Liderazgo, comunicación y marca personal</image:caption>
+      <image:title>Metodología Magna SEI</image:title>
+    </image:image>
+  </url>
+
+  <!-- =============================== CAMPAÑAS ESPECIALES Y EVENTOS =============================== -->
+  <url>
+    <loc>https://magnacomunicaciones.com/navidad.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/navidad1.png</image:loc>
+      <image:caption>Celebra la Navidad con Magna - Experiencias corporativas navideñas inolvidables</image:caption>
+      <image:title>Eventos Navideños Corporativos</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/navidad-servicios.jpg</image:loc>
+      <image:caption>Servicios navideños especializados - Logística, catering y entretenimiento</image:caption>
+      <image:title>Servicios Navideños Magna</image:title>
+    </image:image>
+  </url>
+
+  <!-- =============================== VERSIONES MÓVILES OPTIMIZADAS =============================== -->
+  <url>
+    <loc>https://magnacomunicaciones.com/movil/index.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)" href="https://magnacomunicaciones.com/movil/index.html" />
+  </url>
+  
+  <url>
+    <loc>https://magnacomunicaciones.com/movil/somos.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)" href="https://magnacomunicaciones.com/movil/somos.html" />
+  </url>
+  
+  <url>
+    <loc>https://magnacomunicaciones.com/movil/servicios.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)" href="https://magnacomunicaciones.com/movil/servicios.html" />
+  </url>
+  
+  <url>
+    <loc>https://magnacomunicaciones.com/movil/como.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)" href="https://magnacomunicaciones.com/movil/como.html" />
+  </url>
+  
+  <url>
+    <loc>https://magnacomunicaciones.com/movil/conversemos.html</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" media="only screen and (max-width: 640px)" href="https://magnacomunicaciones.com/movil/conversemos.html" />
+  </url>
+
+  <!-- =============================== SECCIONES DE CONTENIDO ESPECIALIZADO =============================== -->
+  <url>
+    <loc>https://magnacomunicaciones.com/portfolio/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/portfolio-hero.jpg</image:loc>
+      <image:caption>Portfolio Magna - Casos de éxito y proyectos destacados</image:caption>
+      <image:title>Portfolio de Proyectos</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://magnacomunicaciones.com/blog/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://magnacomunicaciones.com/img/blog-hero.jpg</image:loc>
+      <image:caption>Blog Magna - Insights sobre comunicación estratégica y tendencias</image:caption>
+      <image:title>Blog Magna Comunicaciones</image:title>
+    </image:image>
+  </url>
+
+  <!-- =============================== RECURSOS Y DOCUMENTOS =============================== -->
+  <url>
+    <loc>https://magnacomunicaciones.com/recursos/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://magnacomunicaciones.com/descargas/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- =============================== PÁGINAS LEGALES Y POLÍTICAS =============================== -->
+  <url>
+    <loc>https://magnacomunicaciones.com/politica-privacidad.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://magnacomunicaciones.com/terminos-condiciones.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://magnacomunicaciones.com/politica-cookies.html</loc>
+    <lastmod>2025-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- =============================== VERSIONES ALTERNATIVAS Y MULTIIDIOMA =============================== -->
+  <url>
+    <loc>https://magnacomunicaciones.com/en/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://magnacomunicaciones.com/en/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://magnacomunicaciones.com/" />
+  </url>
+
+</urlset>

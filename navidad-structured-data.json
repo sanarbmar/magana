@@ -1,0 +1,65 @@
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Celebra la Navidad con Magna - Experiencias Corporativas Navideñas",
+  "description": "En Magna creemos que la Navidad es más que una celebración: es un ritual de gratitud, unión y reconocimiento. Diseñamos experiencias memorables para empresas que quieren cerrar el año fortaleciendo lazos, inspirando a sus equipos y sorprendiendo a sus aliados.",
+  "url": "https://magnacomunicaciones.com/navidad.html",
+  "inLanguage": "es-CO",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Magna Comunicaciones",
+    "url": "https://magnacomunicaciones.com"
+  },
+  "about": [
+    {
+      "@type": "Service",
+      "name": "Navidad Corporativa",
+      "description": "Convierte la fiesta de fin de año en un encuentro inolvidable que enciende la alegría y refuerza la cultura organizacional. Incluye celebración en sede, actividades culturales y producción integral.",
+      "duration": "PT3H/PT8H",
+      "serviceType": "Evento Corporativo"
+    },
+    {
+      "@type": "Service", 
+      "name": "Experiencias Selectas para Directivos",
+      "description": "Un detalle exclusivo para quienes lideran. Cenas privadas de autor, experiencias únicas y producción premium a la medida.",
+      "duration": "PT3H/PT5H",
+      "serviceType": "Evento Ejecutivo"
+    },
+    {
+      "@type": "Product",
+      "name": "Anchetas y Regalos Corporativos",
+      "description": "Cada regalo cuenta una historia de gratitud. Anchetas premium personalizadas, kits temáticos y opciones sostenibles.",
+      "category": "Regalos Corporativos"
+    }
+  ],
+  "provider": {
+    "@type": "Organization",
+    "name": "Magna Comunicaciones",
+    "url": "https://magnacomunicaciones.com",
+    "telephone": "+573233131056",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Calle 6 sur #52-18",
+      "addressLocality": "Medellín",
+      "addressCountry": "Colombia"
+    },
+    "sameAs": [
+      "https://www.facebook.com/share/12DeqKghFYm/",
+      "https://www.instagram.com/magnacomunicaciones.co",
+      "https://www.linkedin.com/company/magnacomunicaciones/",
+      "https://www.tiktok.com/@magnacomunicaciones.co",
+      "https://x.com/magnacomco"
+    ]
+  },
+  "keywords": [
+    "navidad corporativa",
+    "fiestas empresariales", 
+    "eventos navideños",
+    "celebraciones fin de año",
+    "regalos corporativos",
+    "experiencias navideñas",
+    "cultura organizacional",
+    "eventos colombia",
+    "magna comunicaciones"
+  ]
+}
