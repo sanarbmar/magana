@@ -58,6 +58,12 @@
     <!-- Core Style Css -->
     <link rel="stylesheet" href="assets/css/style.css">
 
+    <!-- Navbar unificado (mismo navbar del home) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/site-nav.css">
+
     <style>
         /* Deshabilitar animaciones del banner principal */
         .slider,
@@ -166,63 +172,41 @@
     <div id="smooth-wrapper">
 
        <!-- ==================== Start Navbar ==================== -->
-        <nav class="navbar navbar-expand-lg static">
-            <div class="container">
-
-                <!-- Logo -->
-                <a class="logo icon-img-100" href="index.html" style="margin-left: 2%;">
-                    <img src="img/logo.svg" alt="Magna Logo" style="width: 40px;">
-                </a>
-
-                <button class="navbar-toggler" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="icon-bar"><i class="fas fa-bars"></i></span>
-                </button>
-
-                <!-- navbar links -->
-                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                    <ul class="navbar-nav">
-            
-                        <li class="nav-item dropdown">
-                            <a href="index.html" class="nav-link"><span>Inicio</span></a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a href="somos.html" class="nav-link"><span>Somos Magna</span></a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a href="como.html" class="nav-link"><span>¿Cómo lo hacemos?</span></a>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><span>Servicios</span></a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="gobiernos.html">Gobiernos</a>
-                                <a class="dropdown-item" href="empresas.html">Empresas (Pymes)</a>
-                                <a class="dropdown-item" href="personas.html">Personas</a>
-                            </div>
-                        </li>
-
-                        <li class="nav-item dropdown">
-                            <a href="conversemos.html" class="nav-link"><span>Conversemos</span></a>
-                        </li>
-            
-                        <li class="nav-item dropdown">
-                            <a target="_blank" href="https://magnacomunicacionesco.blogspot.com/" class="nav-link"><span>Blog</span></a>
-                        </li>
-                        
-                    
-                    </ul>
-                </div>
-
-                <div class="search-form">
-                    <a href="magna-sei.html" class="simple-nav-btn">Magna SEI</a>
-                    <a target="_blank" href="https://wa.me/573233131056?text=Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n" class="simple-nav-btn">WhatsApp</a>
-                </div>
+        <header class="site-nav">
+          <div class="wrap">
+            <a class="brand" href="index.html">
+              <img src="img/logo.svg" alt="Magna Comunicaciones" width="34" height="34">
+              Magna <span class="brand-sub">Comunicaciones</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menú</button>
+            <ul class="navlinks" id="navLinks">
+              <li><a class="navlink" href="empresas.html">Empresas</a></li>
+              <li><a class="navlink" href="gobiernos.html">Gobiernos</a></li>
+              <li><a class="navlink" href="personas.html">Personas</a></li>
+              <li><a class="navlink" href="servicios.html">Servicios</a></li>
+              <li><a class="navlink" href="somos.html">Nosotros</a></li>
+              <li class="nav-drawer-cta"><a class="btn btn-core" href="https://wa.me/573233131056?text=Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener">Conversemos</a></li>
+            </ul>
+            <div class="nav-actions">
+              <a class="btn btn-core" href="https://wa.me/573233131056?text=Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener">Conversemos</a>
             </div>
-        </nav>
+          </div>
+        </header>
+        <script>
+          (function () {
+            "use strict";
+            try {
+              var toggle = document.getElementById("navToggle");
+              var links = document.getElementById("navLinks");
+              if (toggle && links) {
+                toggle.addEventListener("click", function () {
+                  var open = links.classList.toggle("is-open");
+                  toggle.setAttribute("aria-expanded", open ? "true" : "false");
+                });
+              }
+            } catch (e) { /* fail safe */ }
+          })();
+        </script>
         <!-- ==================== End Navbar ==================== -->
 
 

@@ -1,0 +1,152 @@
+/* ==========================================================================
+   Magna Comunicaciones — Nav parcial reutilizable
+   Extraído de magna.css para usar el mismo navbar del home en el resto de
+   páginas del sitio sin cargar el resto del sistema de diseño (evita que
+   los resets/tipografía de magna.css choquen con assets/css/style.css).
+   ========================================================================== */
+
+:root {
+  --magna-core: #ff6633;
+  --magna-core-solid: #c94317;
+  --magna-core-ink: #a6320f;
+
+  --ink: #141414;
+  --ground-raised: #ffffff;
+  --line: rgba(20, 20, 20, 0.12);
+
+  --font-display: "Archivo", "Archivo Black", system-ui, sans-serif;
+  --font-body: "Public Sans", system-ui, -apple-system, sans-serif;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wrap {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+}
+
+/* ---- Buttons (used by the Conversemos CTA inside the nav) ---- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  padding: 0.95rem 1.75rem;
+  border-radius: 999px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.25s var(--ease-out-expo), box-shadow 0.25s var(--ease-out-expo), background 0.2s ease;
+}
+.btn-core {
+  background: var(--magna-core-solid);
+  color: #fff;
+}
+.btn-core:hover {
+  color: #fff;
+  background: var(--magna-core-ink);
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -12px rgba(255, 102, 51, 0.55);
+}
+
+/* ---- Nav ---- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(251, 249, 246, 0.86);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  /* Algunas páginas cargan un timeline GSAP heredado que anima
+     "header" (tl.from("header", { y: 200 })) como parte del preloader.
+     Se neutraliza aquí para que el nav se comporte igual que en el
+     home: visible de inmediato, sin animación de entrada. */
+  transform: none !important;
+}
+.site-nav .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  gap: var(--space-3);
+}
+.site-nav .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.site-nav .brand img { width: 2.1rem; height: 2.1rem; }
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+}
+.site-nav a.navlink {
+  font-family: var(--font-body);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.98rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 2px solid transparent;
+}
+.site-nav a.navlink:hover { color: var(--magna-core); border-color: var(--magna-core); }
+.site-nav .nav-actions { display: flex; align-items: center; gap: var(--space-2); }
+.nav-toggle { display: none; }
+.nav-drawer-cta { display: none; }
+
+@media (max-width: 860px) {
+  .site-nav ul.navlinks { display: none; }
+  .nav-toggle {
+    display: inline-flex;
+    background: none;
+    border: none;
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 0.95rem;
+    color: var(--ink);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .site-nav .nav-actions { display: none; }
+  .nav-drawer-cta { display: block !important; margin-top: 0.35rem; }
+}
+
+@media (max-width: 420px) {
+  .site-nav .brand .brand-sub { display: none; }
+}
+
+/* ---- Mobile nav drawer ---- */
+@media (max-width: 860px) {
+  .site-nav ul.navlinks.is-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--ground-raised);
+    border-bottom: 1px solid var(--line);
+    padding: var(--space-2) var(--space-3) var(--space-3);
+    gap: var(--space-2);
+  }
+}
