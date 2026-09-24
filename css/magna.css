@@ -197,15 +197,29 @@ section { position: relative; }
   .site-nav ul.navlinks { display: none; }
   .nav-toggle {
     display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 2.4rem;
+    height: 2.4rem;
+    padding: 0;
     background: none;
     border: none;
-    font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 0.95rem;
-    color: var(--ink);
     cursor: pointer;
     flex-shrink: 0;
   }
+  .nav-toggle-bar {
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--ink);
+    transition: transform 0.25s var(--ease-out-expo), opacity 0.2s ease;
+  }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
   .site-nav .nav-actions { display: none; }
   .nav-drawer-cta { display: block !important; margin-top: 0.35rem; }
 }
