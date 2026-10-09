@@ -986,3 +986,189 @@ ul.checks li b, ul.checks li strong { font-weight: 800; }
   .history-item:first-child { padding-top: var(--space-4); }
   .history-year { margin: 0; }
 }
+
+/* ==========================================================================
+   Home — nueva narrativa (oct 2026): qué me pasa → quién lo resuelve →
+   cómo lo hace → para quién es → qué prueba hay → invitación a conversar.
+   ========================================================================== */
+
+/* ---- Hero: frase de apertura larga + sello ---- */
+.hero h1 {
+  font-size: clamp(2.2rem, 2.6vw + 1.2rem, 4rem);
+  line-height: 1.1;
+  max-width: 24ch;
+  text-wrap: balance;
+}
+.hero-h1-second { color: var(--magna-empresas); }
+.hero-sub { font-size: 1.1rem; opacity: 0.85; max-width: 40rem; margin: 0; }
+.hero-seal {
+  margin: var(--space-4) 0 0;
+  padding-top: var(--space-2);
+  border-top: 2px solid rgba(255,255,255,0.7);
+  max-width: 40rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.hero-seal strong { color: var(--magna-empresas); font-weight: 900; font-size: 1.6rem; margin-right: 0.35rem; }
+
+/* ---- 1. El desafío / 2. Nuestra respuesta ---- */
+.desafio-band { padding: var(--space-6) 0; }
+.desafio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  align-items: stretch;
+}
+.desafio-problem { padding: var(--space-4) var(--space-4) var(--space-4) 0; }
+.desafio-problem .lede { max-width: 34rem; }
+.desafio-ask {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(2rem, 2.5vw + 1rem, 3.2rem);
+  line-height: 1;
+  color: var(--magna-core-solid);
+  margin: var(--space-3) 0 0;
+}
+.desafio-answer {
+  border-radius: var(--radius);
+  padding: var(--space-5) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.desafio-answer .front-label { color: var(--magna-empresas); opacity: 1; }
+@media (max-width: 860px) {
+  .desafio-grid { grid-template-columns: 1fr; }
+  .desafio-problem { padding: 0 0 var(--space-3); }
+  .desafio-answer { padding: var(--space-4) var(--space-3); }
+}
+
+/* ---- 3. Las soluciones, como capítulos ---- */
+.capitulos {
+  list-style: none;
+  margin: var(--space-5) 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-3);
+}
+.capitulo {
+  border-top: 4px solid var(--cap, var(--magna-core));
+  padding-top: var(--space-2);
+}
+.capitulo h3 { font-size: 1.3rem; line-height: 1.2; margin: 0 0 0.5rem; }
+.capitulo p { font-size: 0.98rem; opacity: 0.82; margin: 0; }
+@media (max-width: 1000px) { .capitulos { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 640px) { .capitulos { grid-template-columns: 1fr; } }
+
+/* ---- Para quién ---- */
+.audiencias-band { padding: var(--space-6) 0 0; }
+.audiencias-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+.audiencia {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-3);
+  min-height: 15rem;
+  text-decoration: none;
+  transition: transform 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo);
+}
+.audiencia h3 { font-size: clamp(1.5rem, 1.2vw + 1rem, 2rem); line-height: 1.15; margin: 0 0 0.6rem; }
+.audiencia p { margin: 0 0 var(--space-3); opacity: 0.9; }
+.audiencia-go { margin-top: auto; font-family: var(--font-display); font-weight: 800; }
+.audiencia:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -22px rgba(20,20,20,0.6); }
+.audiencia.field-gobiernos:hover, .audiencia.field-personas:hover { color: #fff; }
+.audiencia.field-empresas:hover { color: #241800; }
+@media (max-width: 860px) {
+  .audiencias-grid { grid-template-columns: 1fr; }
+  .audiencia { min-height: 0; }
+}
+
+/* ---- "Tienes un objetivo" (reusa callback-band) ---- */
+.callback-grid h2 { max-width: 18ch; margin-bottom: var(--space-3); }
+
+/* ---- Casos: el reto del cliente y lo que hicimos ---- */
+.casos-band { padding: var(--space-6) 0 0; }
+.casos-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+.caso {
+  background: var(--ground-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: var(--space-4) var(--space-3);
+}
+.caso-client {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.15rem;
+  color: var(--magna-core-solid);
+  margin: 0 0 0.15rem;
+}
+.caso-line { font-size: 0.92rem; font-style: italic; color: var(--ink-soft); margin: 0 0 var(--space-2); }
+.caso h3 { font-size: clamp(1.25rem, 0.8vw + 1rem, 1.55rem); line-height: 1.15; margin: 0 0 0.75rem; }
+.caso p:not(.caso-client):not(.caso-line) { color: var(--ink-soft); font-size: 1rem; }
+.caso p:last-child { margin-bottom: 0; }
+.caso-wide {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: var(--space-4);
+  align-items: center;
+}
+.caso-wide .caso-client { color: var(--magna-personas-ink); }
+.caso-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+  counter-reset: paso;
+}
+.caso-steps li {
+  counter-increment: paso;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  background: #fbe9ee;
+}
+.caso-steps li::before {
+  content: counter(paso);
+  display: inline-grid;
+  place-items: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  background: var(--magna-personas-ink);
+  color: #fff;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+.casos-logos { margin-top: 0; }
+@media (max-width: 860px) {
+  .casos-grid { grid-template-columns: 1fr; }
+  .caso-wide { grid-template-columns: 1fr; }
+  .caso { padding: var(--space-3) var(--space-3); }
+}
+
+/* Con 6 diapositivas, los puntos + flechas no caben en una fila a 390px */
+@media (max-width: 760px) {
+  .hero-controls { flex-wrap: nowrap; gap: var(--space-2); }
+  .hero-dots { gap: 0.4rem; }
+  .hero-dot { width: 1.6rem; }
+}
