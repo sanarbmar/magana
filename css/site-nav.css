@@ -146,7 +146,12 @@
 }
 
 @media (max-width: 420px) {
-  .site-nav .brand .brand-sub { display: none; }
+  .site-nav .brand { font-size: 1rem; gap: 0.5rem; }
+  .site-nav .brand img { width: 1.9rem; height: 1.9rem; }
+}
+@media (max-width: 350px) {
+  .site-nav .brand { font-size: 0.88rem; }
+  .site-nav .brand img { width: 1.7rem; height: 1.7rem; }
 }
 
 /* ---- Mobile nav drawer ---- */

@@ -1,0 +1,32 @@
+/* ==========================================================================
+   Magna Comunicaciones — Tipografía del sistema "Informe de Gestión"
+   Para las páginas que aún usan la plantilla vieja (Empresas, Gobiernos,
+   Personas): reemplaza Poppins / Sora / Playfair por la misma pareja del
+   home: Archivo (titulares, botones, marca) + Public Sans (texto).
+   Se carga DESPUÉS de assets/css/style.css y css/site-nav.css.
+   Solo aplica a elementos de texto; no toca las fuentes de íconos
+   (que se pintan con ::before / ::after).
+   ========================================================================== */
+
+/* Texto corrido */
+body.home-corp,
+body.home-corp :is(div, p, span, a, li, ul, ol, label, small, strong, em, b, i,
+                   td, th, input, textarea, select, blockquote, figcaption) {
+  font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif !important;
+}
+
+/* Titulares, botones y marca: Archivo, como en el home */
+body.home-corp :is(h1, h2, h3, h4, h5, h6),
+body.home-corp :is(h1, h2, h3, h4, h5, h6) *,
+body.home-corp :is(button, .btn, .btn-empresas, .btn-gobiernos, .btn-personas, .simple-nav-btn),
+body.home-corp :is(button, .btn, .btn-empresas, .btn-gobiernos, .btn-personas, .simple-nav-btn) *,
+body.home-corp .site-nav .brand,
+body.home-corp .site-nav .brand * {
+  font-family: "Archivo", "Archivo Black", system-ui, sans-serif !important;
+}
+
+body.home-corp :is(h1, h2, h3, h4, h5, h6),
+body.home-corp :is(h1, h2, h3, h4, h5, h6) span {
+  font-weight: 800 !important;
+  letter-spacing: -0.02em !important;
+}
