@@ -1220,3 +1220,23 @@ ul.checks li b, ul.checks li strong { font-weight: 800; }
 }
 @keyframes title-sweep { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
+
+/* ---- Botón flotante de WhatsApp (mismo del resto del sitio: empresas, gobiernos, personas…) ---- */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  z-index: 30;
+}
+.whatsapp-float img { width: 40px; height: 40px; }
+.whatsapp-float:hover { transform: scale(1.1); }
+.whatsapp-float:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
