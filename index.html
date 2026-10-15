@@ -804,6 +804,7 @@
           var chips = hx.querySelectorAll(".hx-chip");
           var tabs = Array.prototype.slice.call(hx.querySelectorAll(".hx-tab"));
           var toggle = hx.querySelector(".hx-toggle");
+          var stage = hx.querySelector(".hx-stage");
           var blobPath = hx.querySelector(".hx-blob path");
           var N = phrases.length;
           var DUR = 6500;
@@ -812,6 +813,7 @@
           var userPaused = false;
           var hoverPaused = false;
           var finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+          var clamp = function (v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; };
           var blobs = [
             "M210,18 C300,10 382,70 388,170 C394,262 352,300 360,372 C368,440 300,474 220,466 C130,458 60,470 26,400 C-4,336 30,282 22,214 C14,140 40,60 110,34 C140,24 176,20 210,18 Z",
             "M190,10 C280,30 370,40 384,140 C398,240 330,280 372,360 C404,430 330,480 240,470 C150,460 90,446 40,392 C-6,342 14,280 30,210 C46,140 20,80 80,40 C116,16 152,4 190,10 Z",
@@ -819,14 +821,15 @@
           ];
           hx.style.setProperty("--hx-dur", DUR + "ms");
 
-          var setPositions = function (index, prev) {
+          // La foto que sale vuela hacia la izquierda ("out") o la derecha ("out-r")
+          var setPositions = function (index, prev, outDir) {
             for (var i = 0; i < cards.length; i++) {
               var pos = (i - index + N) % N;
               var card = cards[i];
               if (i === prev && !reducedMotion) {
-                card.setAttribute("data-pos", "out");
+                card.setAttribute("data-pos", outDir || "out");
                 (function (c, p) {
-                  setTimeout(function () { if (c.getAttribute("data-pos") === "out") c.setAttribute("data-pos", String(p)); }, 760);
+                  setTimeout(function () { var d = c.getAttribute("data-pos"); if (d === "out" || d === "out-r") c.setAttribute("data-pos", String(p)); }, 760);
                 })(card, pos);
               } else {
                 card.setAttribute("data-pos", String(pos));
@@ -834,9 +837,9 @@
             }
           };
 
-          var goTo = function (index, fromUser) {
+          var goTo = function (index, fromUser, outDir) {
             index = (index + N) % N;
-            if (index === cur) return;
+            if (index === cur) { if (fromUser) restart(); return; }
             var prev = cur;
             cur = index;
             hx.setAttribute("data-slide", String(cur));
@@ -859,40 +862,43 @@
               if (on) { var bar = tab.querySelector(".hx-tab-bar"); bar.style.animation = "none"; void bar.offsetWidth; bar.style.animation = ""; }
             });
             if (blobPath) blobPath.setAttribute("d", blobs[cur % blobs.length]);
-            setPositions(cur, prev);
+            setPositions(cur, prev, outDir);
             if (fromUser) restart();
           };
+          var next = function (fromUser) { goTo(cur + 1, fromUser, "out"); };
+          var prevSlide = function (fromUser) { goTo(cur - 1, fromUser, "out-r"); };
 
+          // Rotación automática. Con "reducir movimiento" también rota, pero
+          // solo con fundidos (sin giros 3D); el botón de pausa siempre está.
           var stop = function () { if (timer) { clearTimeout(timer); timer = null; } };
           var schedule = function () {
             stop();
-            if (reducedMotion || userPaused || hoverPaused || document.hidden) return;
-            timer = setTimeout(function () { goTo(cur + 1); schedule(); }, DUR);
+            if (userPaused || hoverPaused || document.hidden) return;
+            timer = setTimeout(function () { next(false); schedule(); }, DUR);
           };
           var restart = function () { schedule(); };
           var syncPaused = function () {
             var paused = userPaused || hoverPaused;
-            hx.classList.toggle("is-paused", paused && !reducedMotion);
+            hx.classList.toggle("is-paused", paused);
             hx.classList.toggle("is-user-paused", userPaused);
             if (paused) stop(); else schedule();
           };
 
           tabs.forEach(function (tab, i) {
-            tab.addEventListener("click", function () { goTo(i, true); });
+            tab.addEventListener("click", function () { goTo(i, true, i < cur ? "out-r" : "out"); });
             tab.addEventListener("keydown", function (ev) {
               var k = ev.key;
               if (k === "ArrowRight" || k === "ArrowLeft" || k === "Home" || k === "End") {
                 ev.preventDefault();
                 var n = k === "ArrowRight" ? cur + 1 : k === "ArrowLeft" ? cur - 1 : k === "Home" ? 0 : N - 1;
-                goTo(n, true);
+                goTo(n, true, k === "ArrowLeft" || k === "Home" ? "out-r" : "out");
                 tabs[(n + N) % N].focus();
               }
             });
           });
-          hx.querySelector(".hx-prev").addEventListener("click", function () { goTo(cur - 1, true); });
-          hx.querySelector(".hx-next").addEventListener("click", function () { goTo(cur + 1, true); });
+          hx.querySelector(".hx-prev").addEventListener("click", function () { prevSlide(true); });
+          hx.querySelector(".hx-next").addEventListener("click", function () { next(true); });
           if (toggle) {
-            if (reducedMotion) { toggle.hidden = true; hx.classList.add("is-static"); }
             toggle.addEventListener("click", function () {
               userPaused = !userPaused;
               toggle.setAttribute("aria-pressed", userPaused ? "true" : "false");
@@ -900,7 +906,6 @@
               syncPaused();
             });
           }
-          var stage = hx.querySelector(".hx-stage");
           if (stage && finePointer) {
             stage.addEventListener("mouseenter", function () { hoverPaused = true; syncPaused(); });
             stage.addEventListener("mouseleave", function () { hoverPaused = false; syncPaused(); });
@@ -914,7 +919,61 @@
           hx.addEventListener("focusout", function () { hoverPaused = false; syncPaused(); });
           document.addEventListener("visibilitychange", function () { if (document.hidden) stop(); else schedule(); });
 
-          // Inclinación 3D que sigue al cursor (solo mouse; en táctil flota sola)
+          // ---- Táctil: deslizar la foto o tocarla para cambiar de frase ----
+          var dragX = 0;
+          if (stage && !finePointer) {
+            var sx0 = null, sy0 = null, dragging = false;
+            var resetDrag = function () {
+              dragging = false; sx0 = null; dragX = 0;
+              hx.classList.remove("is-dragging");
+              hx.style.setProperty("--dx", "0px");
+              hx.style.setProperty("--dr", "0");
+            };
+            stage.addEventListener("pointerdown", function (ev) {
+              if (ev.pointerType === "mouse") return;
+              sx0 = ev.clientX; sy0 = ev.clientY; dragging = false;
+            });
+            stage.addEventListener("pointermove", function (ev) {
+              if (sx0 === null) return;
+              var dx = ev.clientX - sx0, dy = ev.clientY - sy0;
+              if (!dragging) {
+                if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) {
+                  dragging = true;
+                  hx.classList.add("is-dragging");
+                  stop();
+                  try { stage.setPointerCapture(ev.pointerId); } catch (err) {}
+                } else if (Math.abs(dy) > 10) { sx0 = null; return; }
+              }
+              if (dragging) {
+                var w = stage.offsetWidth || 1;
+                dragX = clamp(dx / w, -1, 1);
+                hx.style.setProperty("--dx", (dx * 0.9).toFixed(1) + "px");
+                hx.style.setProperty("--dr", (dragX * 22).toFixed(2));
+              }
+            });
+            stage.addEventListener("pointerup", function (ev) {
+              if (sx0 === null) return;
+              var dx = ev.clientX - sx0;
+              var w = stage.offsetWidth || 1;
+              if (dragging) {
+                resetDrag();
+                if (dx < -w * 0.2) next(true);
+                else if (dx > w * 0.2) prevSlide(true);
+                else schedule();
+              } else {
+                // Toque: lado izquierdo = anterior, resto = siguiente (como historias)
+                var r = stage.getBoundingClientRect();
+                resetDrag();
+                if (ev.clientX < r.left + r.width * 0.33) prevSlide(true); else next(true);
+              }
+            });
+            stage.addEventListener("pointercancel", function () { if (dragging) schedule(); resetDrag(); });
+          }
+
+          // ---- Inclinación 3D ----
+          // Mouse: sigue al cursor. Celular: sigue el giroscopio (inclinar el
+          // teléfono); si no hay giroscopio, flota sola. Al hacer scroll la
+          // escena se recuesta hacia atrás.
           if (!reducedMotion) {
             if (finePointer) {
               var tx = 0, ty = 0, x = 0, y = 0, raf = null;
@@ -936,7 +995,60 @@
               });
               hx.addEventListener("pointerleave", function () { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(tick); });
             } else {
-              hx.classList.add("is-idle");
+              var gx = 0, gy = 0, gyroAt = 0, baseBeta = null;
+              var mx = 0, my = 0, running = false, inView = true, t0 = Date.now();
+              var onOrient = function (e) {
+                if (e.beta == null || e.gamma == null) return;
+                var beta = e.beta, gamma = e.gamma;
+                var ang = (screen.orientation && screen.orientation.angle) || window.orientation || 0;
+                if (ang === 90) { var t1 = beta; beta = -gamma; gamma = t1; }
+                else if (ang === -90 || ang === 270) { var t2 = beta; beta = gamma; gamma = -t2; }
+                if (baseBeta === null) baseBeta = beta;
+                baseBeta += (beta - baseBeta) * 0.015;  // se adapta a cómo sostienes el celular
+                gx = clamp(gamma / 22, -1, 1);
+                gy = clamp((beta - baseBeta) / 18, -1, 1);
+                gyroAt = Date.now();
+              };
+              var listenGyro = function () { window.addEventListener("deviceorientation", onOrient); };
+              var DOE = window.DeviceOrientationEvent;
+              if (DOE && typeof DOE.requestPermission === "function") {
+                // iPhone: Safari pide permiso; se solicita al primer toque de la foto
+                var asked = false;
+                stage.addEventListener("touchend", function () {
+                  if (asked) return; asked = true;
+                  DOE.requestPermission().then(function (st) { if (st === "granted") listenGyro(); }).catch(function () {});
+                });
+              } else if (DOE) {
+                listenGyro();
+              }
+              var loop = function () {
+                if (!running) return;
+                var now = Date.now();
+                var t = (now - t0) / 1000;
+                var gyro = now - gyroAt < 1200;
+                var txm = gyro ? gx : Math.sin(t * 0.6) * 0.6;
+                var tym = gyro ? gy : Math.cos(t * 0.45) * 0.45;
+                txm = clamp(txm + dragX * 0.8, -1.4, 1.4);
+                mx += (txm - mx) * 0.07;
+                my += (tym - my) * 0.07;
+                var r = hx.getBoundingClientRect();
+                var sp = clamp(-r.top / (r.height || 1), 0, 1);
+                hx.style.setProperty("--ry", (mx * 14).toFixed(2) + "deg");
+                hx.style.setProperty("--rx", (-my * 10 + sp * 18).toFixed(2) + "deg");
+                hx.style.setProperty("--px", mx.toFixed(3));
+                hx.style.setProperty("--py", my.toFixed(3));
+                requestAnimationFrame(loop);
+              };
+              var run = function () {
+                var want = inView && !document.hidden;
+                if (want && !running) { running = true; requestAnimationFrame(loop); }
+                else if (!want) running = false;
+              };
+              if ("IntersectionObserver" in window) {
+                new IntersectionObserver(function (en) { inView = en[0].isIntersecting; run(); }).observe(hx);
+              }
+              document.addEventListener("visibilitychange", run);
+              run();
             }
           }
           schedule();

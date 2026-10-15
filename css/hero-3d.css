@@ -164,11 +164,6 @@
   transform-style: preserve-3d;
   transform: rotateX(var(--rx)) rotateY(var(--ry));
 }
-.hx.is-idle .hx-rig { animation: hx-float 9s ease-in-out infinite alternate; }
-@keyframes hx-float {
-  from { transform: rotateX(4deg) rotateY(-9deg); }
-  to   { transform: rotateX(-3deg) rotateY(7deg); }
-}
 .hx-card {
   position: absolute;
   inset: 0;
@@ -317,7 +312,6 @@
 .hx-tab:hover, .hx-tab[aria-selected="true"] { color: #fff; }
 .hx-tab[aria-selected="true"] .hx-tab-bar { animation: hx-progress var(--hx-dur, 6500ms) linear forwards; }
 .hx.is-paused .hx-tab[aria-selected="true"] .hx-tab-bar { animation-play-state: paused; }
-.hx.is-static .hx-tab[aria-selected="true"] .hx-tab-bar { animation: none; width: 100%; }
 @keyframes hx-progress { from { width: 0; } to { width: 100%; } }
 .hx-tab:focus-visible, .hx-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 4px; }
 
@@ -340,31 +334,111 @@
 .hx.is-user-paused .hx-btn .i-play { display: block; }
 .hx.is-user-paused .hx-btn .i-pause { display: none; }
 
-/* ---- Responsive ---- */
+/* ---- Gesto táctil: la foto de arriba sigue al dedo ---- */
+.hx-card[data-pos="0"] {
+  transform:
+    translate3d(var(--dx, 0px), 0, 0)
+    rotateY(calc(var(--dr, 0) * 1deg))
+    rotateZ(calc(var(--dr, 0) * -0.12deg));
+}
+.hx.is-dragging .hx-card { transition: none; }
+.hx-card[data-pos="out-r"] {
+  transform: translate3d(70%, 10%, 160px) rotateY(-32deg) rotateZ(5deg);
+  opacity: 0;
+  z-index: 4;
+  transition: transform 0.8s cubic-bezier(0.55, 0, 0.75, 0.2), opacity 0.6s ease 0.15s;
+}
+
+/* ---- Responsive ----
+   Tablet y celular: la escena 3D va primero (arriba), luego las pestañas
+   como barras de historia y después el texto. Así las fotos se ven al abrir
+   la página en vez de quedar al fondo. .hx-grid se "disuelve" con
+   display: contents para poder reordenar escenario, controles y texto. */
 @media (max-width: 960px) {
-  .hx { min-height: auto; padding-top: var(--space-4); }
-  .hx-grid { grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
-  .hx-stage { width: min(78%, 22rem); margin: 0 auto; }
-  .hx-chip.is-a { left: -12%; }
-  .hx-chip.is-b { right: -10%; }
-  .hx-badge { width: 6.75rem; height: 6.75rem; left: -9%; }
+  .hx {
+    min-height: auto;
+    justify-content: flex-start;
+    padding: var(--space-3) 0 var(--space-4);
+    overflow: hidden;
+  }
+  .hx-grid { display: contents; }
+  .hx-copy, .hx-stage { position: relative; z-index: 1; }
+  .hx-stage {
+    order: 1;
+    width: min(46vw, 21rem);
+    margin: var(--space-2) auto 0;
+    left: -3%;
+    perspective: 1100px;
+    touch-action: pan-y;               /* el scroll vertical sigue funcionando */
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .hx-controls { order: 2; margin-top: var(--space-4); }
+  .hx-copy {
+    order: 3;
+    width: 100%;
+    max-width: 78rem;
+    margin: var(--space-3) auto 0;
+    padding: 0 var(--space-3);
+  }
+  .hx-bg::after {
+    background:
+      radial-gradient(70% 38% at 50% 24%, color-mix(in srgb, var(--accent) 34%, transparent) 0%, transparent 70%),
+      linear-gradient(180deg, rgba(20,20,20,0.5) 0%, rgba(20,20,20,0.82) 40%, var(--ink) 78%);
+  }
+  .hx-chip.is-a { left: -18%; }
+  .hx-chip.is-b { right: -16%; }
+  .hx-badge { width: 6.75rem; height: 6.75rem; left: -16%; bottom: 7%; }
   .hx-badge-core strong { font-size: 1.85rem; }
   .hx-badge text { font-size: 8.4px; }
 }
-@media (max-width: 560px) {
-  .hx-controls { flex-wrap: wrap; justify-content: flex-end; gap: var(--space-2); }
-  .hx-tabs { flex-basis: 100%; gap: 0.75rem; }
-  .hx-tab { font-size: 0.8rem; white-space: normal; line-height: 1.25; overflow: visible; }
-  .hx-chip { font-size: 0.78rem; padding: 0.45rem 0.8rem; }
-  .hx-chip.is-a { left: -8%; }
-  .hx-chip.is-b { right: -8%; }
+@media (max-width: 760px) {
+  .hx { padding-top: var(--space-2); }
+  .hx-stage { width: min(60vw, 16.5rem); aspect-ratio: 4 / 4.6; margin-top: var(--space-2); }
+  .hx-controls { margin-top: var(--space-4); gap: var(--space-2); }
+  .hx-tabs { gap: 0.6rem; }
+  .hx-tab { font-size: 0.75rem; white-space: normal; line-height: 1.25; overflow: visible; padding-top: 0.7rem; }
+  .hx-prev, .hx-next { display: none; }    /* en celular se desliza o se toca la foto */
+  .hx-btn { width: 2.5rem; height: 2.5rem; }
+  .hx-copy { margin-top: var(--space-3); display: flex; flex-direction: column; }
+  .hx-copy .hero-actions { order: 1; }   /* botones antes del párrafo largo */
+  .hx-copy .hx-lede { order: 2; }
+  .hx-title { font-size: clamp(2.15rem, 1.2rem + 4.4vw, 2.9rem); }
+  /* Cada frase con su propio tamaño para que ocupen casi el mismo alto
+     y no quede un hueco grande sobre "Tú imaginas." */
+  .hx-phrase[data-phrase="0"] { font-size: 1.22em; }
+  .hx-phrase[data-phrase="2"] { font-size: 0.8em; line-height: 1.04; }
+  .hx-story { margin-top: var(--space-2); font-size: 1.12rem; }
+  .hx-lede { margin-top: var(--space-3); font-size: 1rem; line-height: 1.55; }
+  .hx .hero-actions { flex-wrap: nowrap; margin-top: var(--space-3); }
+  .hx .hero-actions .btn { flex: 1 1 0; justify-content: center; white-space: nowrap; font-size: 0.95rem; padding: 0.9rem 0.75rem; }
+  .hx-chip { font-size: 0.74rem; padding: 0.4rem 0.75rem; gap: 0.4rem; }
+  .hx-chip.is-a { top: 8%; left: -22%; }
+  .hx-chip.is-b { top: 56%; right: -22%; }
+  .hx-badge { width: 5.5rem; height: 5.5rem; left: -21%; bottom: 5%; }
+  .hx-badge-core strong { font-size: 1.5rem; }
+  .hx-badge-core span { font-size: 0.68rem; }
+  .hx-badge text { font-size: 8.6px; letter-spacing: 0.1em; }
+}
+@media (max-width: 480px) {
+  /* "Tú / imaginas." grande en dos líneas: llena el mismo alto que la frase larga */
+  .hx-phrase[data-phrase="0"] { font-size: clamp(2.6rem, 14.5vw, 4.25rem); line-height: 0.98; }
+  .hx-phrase[data-phrase="0"] .hx-w { display: block; width: fit-content; }
+}
+@media (max-width: 340px) {
+  .hx .hero-actions { flex-wrap: wrap; }
+  .hx .hero-actions .btn { flex-basis: 100%; }
 }
 
-/* ---- Movimiento reducido: todo quieto y legible, sin 3D ---- */
+/* ---- Movimiento reducido: sin 3D ni giros; las frases y fotos solo
+   aparecen y desaparecen suavemente (fundido) ---- */
 @media (prefers-reduced-motion: reduce) {
-  .hx-rig, .hx.is-idle .hx-rig { animation: none; transform: none; }
+  .hx-rig { transform: none; }
   .hx-badge svg { animation: none; }
   .hx-w > span { transform: none !important; }
   .hx-phrase.is-out { visibility: hidden; }
   .hx-bg-img, .hx-card img { transform: none; }
+  .hx-card, .hx-card[data-pos] { transform: none !important; transition: opacity 0.8s ease; filter: none; }
+  .hx-card:not([data-pos="0"]) { opacity: 0; }
 }
