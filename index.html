@@ -48,6 +48,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="dns-prefetch" href="//wa.me">
   <link rel="stylesheet" href="css/magna.css">
+  <link rel="stylesheet" href="css/hero-3d.css">
 
   <script type="application/ld+json">
   {
@@ -169,82 +170,90 @@
 
   <main id="main">
 
-    <!-- ================= HERO (slider dinámico) =================
-         Reel continuo de "todo lo que hace Magna" — hoy con fotos reales,
-         pensado para admitir video más adelante sin rehacer el componente.
-         Para cambiar una diapositiva a video: reemplaza su <picture>...</picture>
-         por:
-           <video autoplay muted loop playsinline poster="img/hero/slide-N.jpg">
-             <source src="video/slide-N.mp4" type="video/mp4">
-           </video>
-         (el CSS de .hero-slide video ya existe en magna.css con el mismo
-         object-fit: cover que usan las imágenes; el resto del carrusel
-         — autoplay, puntos, flechas, texto — sigue funcionando igual).
-         El texto amarillo de arriba rota con cada diapositiva (data-kicker):
-         "Tú imaginas." → "Nosotros lo hacemos funcionar." → "MAGNA, hacemos que todo funcione." ================= -->
-    <section class="field field-ink hero hero-slider" id="heroSlider" aria-roledescription="carrusel" aria-label="Magna Comunicaciones">
-      <div class="hero-slides">
-        <div class="hero-slide is-active" data-kicker="Tú imaginas.">
-          <picture>
-            <source media="(max-width: 760px)" srcset="img/hero/slide-1-sm.jpg">
-            <img src="img/hero/slide-1.jpg" alt="Equipo de Magna en una sesión de trabajo estratégico" loading="eager" fetchpriority="high">
-          </picture>
+    <!-- ================= HERO 3D (rama rediseno-hero) =================
+         Tres frases que rotan en 3D, cada una ligada a una foto, a un color y
+         a dos capítulos del método:
+           0 · "Tú imaginas."                         → ámbar  · Estrategia / Conexión
+           1 · "Nosotros lo hacemos funcionar."       → azul   · Ejecución / Simplificación
+           2 · "Magna Comunicaciones, hacemos que todo marche." → naranja · Medición / Resultados
+         Para cambiar una foto: reemplaza el src de la misma diapositiva en
+         .hx-bg-img (fondo) y en .hx-card (tarjeta); son la misma imagen, el
+         navegador la descarga una sola vez. Estilos en css/hero-3d.css. ================= -->
+    <section class="field field-ink hx" id="heroSlider" data-slide="0" aria-roledescription="carrusel" aria-label="Magna Comunicaciones: tú imaginas, nosotros lo hacemos funcionar">
+      <div class="hx-bg" aria-hidden="true">
+        <div class="hx-bg-img is-active" data-bg="0">
+          <picture><source media="(max-width: 760px)" srcset="img/hero/slide-1-sm.jpg"><img src="img/hero/slide-1.jpg" alt="" fetchpriority="high" style="object-position:72% 30%"></picture>
         </div>
-        <div class="hero-slide" data-kicker="Nosotros lo hacemos funcionar.">
-          <picture>
-            <source media="(max-width: 760px)" srcset="img/hero/slide-2-sm.jpg">
-            <img src="img/hero/slide-2.jpg" alt="Equipo de Magna revisando contenido en un dispositivo móvil" loading="lazy">
-          </picture>
+        <div class="hx-bg-img" data-bg="1">
+          <picture><source media="(max-width: 760px)" srcset="img/hero/slide-3-sm.jpg"><img src="img/hero/slide-3.jpg" alt="" loading="lazy" style="object-position:62% 40%"></picture>
         </div>
-        <div class="hero-slide" data-kicker="MAGNA, hacemos que todo funcione.">
-          <picture>
-            <source media="(max-width: 760px)" srcset="img/hero/slide-3-sm.jpg">
-            <img src="img/hero/slide-3.jpg" alt="Equipo de Magna trabajando en conjunto frente a un computador" loading="lazy">
-          </picture>
+        <div class="hx-bg-img" data-bg="2">
+          <picture><source media="(max-width: 760px)" srcset="img/hero/slide-4-sm.jpg"><img src="img/hero/slide-4.jpg" alt="" loading="lazy" style="object-position:30% 45%"></picture>
         </div>
-        <div class="hero-slide" data-kicker="Tú imaginas.">
-          <picture>
-            <source media="(max-width: 760px)" srcset="img/hero/slide-4-sm.jpg">
-            <img src="img/hero/slide-4.jpg" alt="Equipo de Magna Comunicaciones reunido, riendo, en la oficina" loading="lazy">
-          </picture>
-        </div>
-        <div class="hero-slide" data-kicker="Nosotros lo hacemos funcionar.">
-          <picture>
-            <source media="(max-width: 760px)" srcset="img/hero/slide-5-sm.jpg">
-            <img src="img/hero/slide-5.jpg" alt="Equipo de Magna colaborando en la oficina" loading="lazy">
-          </picture>
-        </div>
-        <div class="hero-slide" data-kicker="MAGNA, hacemos que todo funcione.">
-          <picture>
-            <source media="(max-width: 760px)" srcset="img/hero/slide-6-sm.jpg">
-            <img src="img/hero/slide-6.jpg" alt="Equipo de Magna Comunicaciones trabajando en conjunto con un computador" loading="lazy">
-          </picture>
-        </div>
-        <div class="hero-slide-scrim" aria-hidden="true"></div>
       </div>
 
-      <div class="wrap hero-inner" data-reveal>
-        <p class="hero-kicker" id="heroKicker" aria-live="off">Tú imaginas.</p>
-        <h1>Tú imaginas lo que quieres lograr. <span class="hero-h1-second">Nosotros hacemos que todo funcione para conseguirlo.</span></h1>
-        <p class="lede">En Magna Comunicaciones conectamos estrategia, comunicación, tecnología y logística para que gobiernos, empresas y organizaciones conviertan sus objetivos en resultados.</p>
-        <div class="hero-actions">
-          <a class="btn btn-core" href="https://wa.me/573233131056?text=Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener">Conversemos</a>
-          <a class="btn btn-ghost" href="#capitulos">Cómo lo hacemos</a>
+      <div class="wrap hx-grid">
+        <div class="hx-copy">
+          <h1 class="hx-title">
+            <span class="sr-only">Tú imaginas. Nosotros lo hacemos funcionar. Magna Comunicaciones, hacemos que todo marche.</span>
+            <span class="hx-rotator" aria-hidden="true">
+          <span class="hx-phrase is-in" data-phrase="0"><span class="hx-w" style="--i:0"><span>Tú</span></span> <span class="hx-w hx-accent" style="--i:1"><span>imaginas.</span></span></span>
+          <span class="hx-phrase" data-phrase="1"><span class="hx-w" style="--i:0"><span>Nosotros</span></span> <span class="hx-w" style="--i:1"><span>lo</span></span> <span class="hx-w" style="--i:2"><span>hacemos</span></span> <span class="hx-w hx-accent" style="--i:3"><span>funcionar.</span></span></span>
+          <span class="hx-phrase" data-phrase="2"><span class="hx-w" style="--i:0"><span>Magna</span></span> <span class="hx-w" style="--i:1"><span>Comunicaciones,</span></span> <span class="hx-w" style="--i:2"><span>hacemos</span></span> <span class="hx-w" style="--i:3"><span>que</span></span> <span class="hx-w" style="--i:4"><span>todo</span></span> <span class="hx-w hx-accent" style="--i:5"><span>marche.</span></span></span>
+            </span>
+          </h1>
+          <p class="hx-story"><span class="hx-step is-on" data-step="0">Tú imaginas lo que quieres lograr.</span> <span class="hx-step" data-step="1">Nosotros hacemos que todo funcione para conseguirlo.</span></p>
+          <p class="hx-lede">En Magna Comunicaciones conectamos estrategia, comunicación, tecnología y logística para que <a class="hx-front" data-front="gobiernos" href="gobiernos.html">gobiernos</a>, <a class="hx-front" data-front="empresas" href="empresas.html">empresas</a> y <a class="hx-front" data-front="personas" href="personas.html">organizaciones</a> <span class="hx-step" data-step="2">conviertan sus objetivos en resultados.</span></p>
+          <div class="hero-actions">
+            <a class="btn btn-core" href="https://wa.me/573233131056?text=Hola%20quisiera%20m%C3%A1s%20informaci%C3%B3n" target="_blank" rel="noopener">Conversemos</a>
+            <a class="btn btn-ghost" href="#capitulos">Cómo lo hacemos</a>
+          </div>
         </div>
-        <p class="hero-seal"><strong>19 años</strong> haciendo que los proyectos pasen.</p>
+
+        <div class="hx-stage" id="hxStage" role="tabpanel" aria-live="off">
+          <div class="hx-rig">
+            <svg class="hx-blob" viewBox="0 0 400 480" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+              <path d="M210,18 C300,10 382,70 388,170 C394,262 352,300 360,372 C368,440 300,474 220,466 C130,458 60,470 26,400 C-4,336 30,282 22,214 C14,140 40,60 110,34 C140,24 176,20 210,18 Z"/>
+            </svg>
+            <figure class="hx-card" data-card="0" data-pos="0">
+              <picture><source media="(max-width: 760px)" srcset="img/hero/slide-1-sm.jpg"><img src="img/hero/slide-1.jpg" alt="Integrante de Magna en una sesión de trabajo estratégico" loading="eager" style="object-position:72% 30%"></picture>
+            </figure>
+            <figure class="hx-card" data-card="1" data-pos="1">
+              <picture><source media="(max-width: 760px)" srcset="img/hero/slide-3-sm.jpg"><img src="img/hero/slide-3.jpg" alt="Equipo de Magna trabajando en conjunto frente a un computador" loading="lazy" style="object-position:62% 40%"></picture>
+            </figure>
+            <figure class="hx-card" data-card="2" data-pos="2">
+              <picture><source media="(max-width: 760px)" srcset="img/hero/slide-4-sm.jpg"><img src="img/hero/slide-4.jpg" alt="Equipo de Magna Comunicaciones reunido, riendo, en la oficina" loading="lazy" style="object-position:30% 45%"></picture>
+            </figure>
+            <div class="hx-chips" aria-hidden="true">
+              <span class="hx-chip is-a is-on" data-chip="0">Estrategia</span>
+              <span class="hx-chip is-b is-on" data-chip="0">Conexión</span>
+              <span class="hx-chip is-a" data-chip="1">Ejecución</span>
+              <span class="hx-chip is-b" data-chip="1">Simplificación</span>
+              <span class="hx-chip is-a" data-chip="2">Medición</span>
+              <span class="hx-chip is-b" data-chip="2">Resultados</span>
+            </div>
+            <div class="hx-badge" role="img" aria-label="19 años haciendo que los proyectos pasen">
+              <svg viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+                <defs><path id="hxRing" d="M60,60 m-47,0 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0"/></defs>
+                <text><textPath href="#hxRing" textLength="292" lengthAdjust="spacing">Haciendo que los proyectos pasen ·</textPath></text>
+              </svg>
+              <span class="hx-badge-core" aria-hidden="true"><strong>19</strong><span>años</span></span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="wrap hero-controls">
-        <button class="hero-arrow hero-prev" type="button" aria-label="Diapositiva anterior">←</button>
-        <div class="hero-dots" id="heroDots" role="tablist" aria-label="Seleccionar diapositiva">
-          <button class="hero-dot is-active" type="button" role="tab" aria-selected="true" aria-label="Diapositiva 1"><span class="hero-dot-fill"></span></button>
-          <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Diapositiva 2"><span class="hero-dot-fill"></span></button>
-          <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Diapositiva 3"><span class="hero-dot-fill"></span></button>
-          <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Diapositiva 4"><span class="hero-dot-fill"></span></button>
-          <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Diapositiva 5"><span class="hero-dot-fill"></span></button>
-          <button class="hero-dot" type="button" role="tab" aria-selected="false" aria-label="Diapositiva 6"><span class="hero-dot-fill"></span></button>
+      <div class="wrap hx-controls">
+        <div class="hx-tabs" role="tablist" aria-label="Frases del inicio">
+          <button class="hx-tab" type="button" role="tab" id="hxTab0" aria-selected="true" aria-controls="hxStage" tabindex="0" data-go="0"><span class="hx-tab-bar"></span>Tú imaginas</button>
+          <button class="hx-tab" type="button" role="tab" id="hxTab1" aria-selected="false" aria-controls="hxStage" tabindex="-1" data-go="1"><span class="hx-tab-bar"></span>Lo hacemos funcionar</button>
+          <button class="hx-tab" type="button" role="tab" id="hxTab2" aria-selected="false" aria-controls="hxStage" tabindex="-1" data-go="2"><span class="hx-tab-bar"></span>Todo marcha</button>
         </div>
-        <button class="hero-arrow hero-next" type="button" aria-label="Siguiente diapositiva">→</button>
+        <div class="hx-btns">
+          <button class="hx-btn hx-prev" type="button" aria-label="Frase anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button class="hx-btn hx-toggle" type="button" aria-label="Pausar la rotación" aria-pressed="false"><svg class="i-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M9 6v12M15 6v12"/></svg><svg class="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 5.5v13l10-6.5z"/></svg></button>
+          <button class="hx-btn hx-next" type="button" aria-label="Frase siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
       </div>
     </section>
 
@@ -786,68 +795,151 @@
       } catch (e) { /* fail safe */ }
 
       try {
-        var slider = document.getElementById("heroSlider");
-        if (slider) {
-          var slides = Array.prototype.slice.call(slider.querySelectorAll(".hero-slide"));
-          var dots = Array.prototype.slice.call(slider.querySelectorAll(".hero-dot"));
-          var kicker = document.getElementById("heroKicker");
-          var prevBtn = slider.querySelector(".hero-prev");
-          var nextBtn = slider.querySelector(".hero-next");
-          var current = 0;
-          var AUTOPLAY_MS = 5000;
+        var hx = document.getElementById("heroSlider");
+        if (hx) {
+          var phrases = hx.querySelectorAll(".hx-phrase");
+          var cards = hx.querySelectorAll(".hx-card");
+          var bgs = hx.querySelectorAll(".hx-bg-img");
+          var steps = hx.querySelectorAll(".hx-step");
+          var chips = hx.querySelectorAll(".hx-chip");
+          var tabs = Array.prototype.slice.call(hx.querySelectorAll(".hx-tab"));
+          var toggle = hx.querySelector(".hx-toggle");
+          var blobPath = hx.querySelector(".hx-blob path");
+          var N = phrases.length;
+          var DUR = 6500;
+          var cur = 0;
           var timer = null;
+          var userPaused = false;
+          var hoverPaused = false;
+          var finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+          var blobs = [
+            "M210,18 C300,10 382,70 388,170 C394,262 352,300 360,372 C368,440 300,474 220,466 C130,458 60,470 26,400 C-4,336 30,282 22,214 C14,140 40,60 110,34 C140,24 176,20 210,18 Z",
+            "M190,10 C280,30 370,40 384,140 C398,240 330,280 372,360 C404,430 330,480 240,470 C150,460 90,446 40,392 C-6,342 14,280 30,210 C46,140 20,80 80,40 C116,16 152,4 190,10 Z",
+            "M230,26 C320,26 392,96 380,190 C368,280 396,330 360,400 C326,462 250,470 180,462 C100,454 30,430 18,350 C8,282 54,250 40,180 C26,110 70,40 140,28 C172,22 200,26 230,26 Z"
+          ];
+          hx.style.setProperty("--hx-dur", DUR + "ms");
 
-          var goTo = function (index) {
-            index = (index + slides.length) % slides.length;
-            if (index === current) return;
-
-            var prevIndex = current;
-            slides[prevIndex].classList.remove("is-active");
-            dots[prevIndex].classList.remove("is-active");
-            dots[prevIndex].classList.add("is-complete");
-            dots[prevIndex].setAttribute("aria-selected", "false");
-
-            current = index;
-            var nextImg = slides[current].querySelector("img");
-            if (nextImg) {
-              // clear any leftover inline state so the kenburns animation restarts from scale(1)
-              nextImg.style.animation = "none";
-              void nextImg.offsetWidth; // force reflow
-              nextImg.style.animation = "";
-            }
-            slides[current].classList.add("is-active");
-            dots[current].classList.remove("is-complete");
-            dots[current].classList.add("is-active");
-            dots[current].setAttribute("aria-selected", "true");
-
-            if (kicker) {
-              kicker.classList.add("is-fading");
-              setTimeout(function () {
-                kicker.textContent = slides[current].getAttribute("data-kicker") || kicker.textContent;
-                kicker.classList.remove("is-fading");
-              }, reducedMotion ? 0 : 350);
+          var setPositions = function (index, prev) {
+            for (var i = 0; i < cards.length; i++) {
+              var pos = (i - index + N) % N;
+              var card = cards[i];
+              if (i === prev && !reducedMotion) {
+                card.setAttribute("data-pos", "out");
+                (function (c, p) {
+                  setTimeout(function () { if (c.getAttribute("data-pos") === "out") c.setAttribute("data-pos", String(p)); }, 760);
+                })(card, pos);
+              } else {
+                card.setAttribute("data-pos", String(pos));
+              }
             }
           };
 
-          var stop = function () { if (timer) { clearInterval(timer); timer = null; } };
-          var start = function () {
-            if (reducedMotion || slides.length < 2) return;
+          var goTo = function (index, fromUser) {
+            index = (index + N) % N;
+            if (index === cur) return;
+            var prev = cur;
+            cur = index;
+            hx.setAttribute("data-slide", String(cur));
+            for (var i = 0; i < N; i++) {
+              phrases[i].classList.remove("is-in", "is-out");
+              if (i === cur) phrases[i].classList.add("is-in");
+              else if (i === prev) phrases[i].classList.add("is-out");
+              bgs[i].classList.toggle("is-active", i === cur);
+            }
+            for (var s = 0; s < steps.length; s++) {
+              steps[s].classList.toggle("is-on", Number(steps[s].getAttribute("data-step")) === cur);
+            }
+            for (var c = 0; c < chips.length; c++) {
+              chips[c].classList.toggle("is-on", Number(chips[c].getAttribute("data-chip")) === cur);
+            }
+            tabs.forEach(function (tab, i) {
+              var on = i === cur;
+              tab.setAttribute("aria-selected", on ? "true" : "false");
+              tab.tabIndex = on ? 0 : -1;
+              if (on) { var bar = tab.querySelector(".hx-tab-bar"); bar.style.animation = "none"; void bar.offsetWidth; bar.style.animation = ""; }
+            });
+            if (blobPath) blobPath.setAttribute("d", blobs[cur % blobs.length]);
+            setPositions(cur, prev);
+            if (fromUser) restart();
+          };
+
+          var stop = function () { if (timer) { clearTimeout(timer); timer = null; } };
+          var schedule = function () {
             stop();
-            timer = setInterval(function () { goTo(current + 1); }, AUTOPLAY_MS);
+            if (reducedMotion || userPaused || hoverPaused || document.hidden) return;
+            timer = setTimeout(function () { goTo(cur + 1); schedule(); }, DUR);
+          };
+          var restart = function () { schedule(); };
+          var syncPaused = function () {
+            var paused = userPaused || hoverPaused;
+            hx.classList.toggle("is-paused", paused && !reducedMotion);
+            hx.classList.toggle("is-user-paused", userPaused);
+            if (paused) stop(); else schedule();
           };
 
-          dots.forEach(function (dot, i) {
-            dot.addEventListener("click", function () { goTo(i); start(); });
+          tabs.forEach(function (tab, i) {
+            tab.addEventListener("click", function () { goTo(i, true); });
+            tab.addEventListener("keydown", function (ev) {
+              var k = ev.key;
+              if (k === "ArrowRight" || k === "ArrowLeft" || k === "Home" || k === "End") {
+                ev.preventDefault();
+                var n = k === "ArrowRight" ? cur + 1 : k === "ArrowLeft" ? cur - 1 : k === "Home" ? 0 : N - 1;
+                goTo(n, true);
+                tabs[(n + N) % N].focus();
+              }
+            });
           });
-          if (prevBtn) prevBtn.addEventListener("click", function () { goTo(current - 1); start(); });
-          if (nextBtn) nextBtn.addEventListener("click", function () { goTo(current + 1); start(); });
+          hx.querySelector(".hx-prev").addEventListener("click", function () { goTo(cur - 1, true); });
+          hx.querySelector(".hx-next").addEventListener("click", function () { goTo(cur + 1, true); });
+          if (toggle) {
+            if (reducedMotion) { toggle.hidden = true; hx.classList.add("is-static"); }
+            toggle.addEventListener("click", function () {
+              userPaused = !userPaused;
+              toggle.setAttribute("aria-pressed", userPaused ? "true" : "false");
+              toggle.setAttribute("aria-label", userPaused ? "Reanudar la rotación" : "Pausar la rotación");
+              syncPaused();
+            });
+          }
+          var stage = hx.querySelector(".hx-stage");
+          if (stage && finePointer) {
+            stage.addEventListener("mouseenter", function () { hoverPaused = true; syncPaused(); });
+            stage.addEventListener("mouseleave", function () { hoverPaused = false; syncPaused(); });
+          }
+          // Pausa mientras se navega con teclado (no con clic) dentro del hero
+          hx.addEventListener("focusin", function (ev) {
+            var kb = false;
+            try { kb = ev.target.matches(":focus-visible"); } catch (err) { kb = true; }
+            if (kb) { hoverPaused = true; syncPaused(); }
+          });
+          hx.addEventListener("focusout", function () { hoverPaused = false; syncPaused(); });
+          document.addEventListener("visibilitychange", function () { if (document.hidden) stop(); else schedule(); });
 
-          slider.addEventListener("mouseenter", stop);
-          slider.addEventListener("mouseleave", start);
-          slider.addEventListener("focusin", stop);
-          slider.addEventListener("focusout", start);
-
-          if (!reducedMotion) { dots[0].classList.add("is-active"); start(); }
+          // Inclinación 3D que sigue al cursor (solo mouse; en táctil flota sola)
+          if (!reducedMotion) {
+            if (finePointer) {
+              var tx = 0, ty = 0, x = 0, y = 0, raf = null;
+              var tick = function () {
+                x += (tx - x) * 0.08;
+                y += (ty - y) * 0.08;
+                hx.style.setProperty("--ry", (x * 12).toFixed(2) + "deg");
+                hx.style.setProperty("--rx", (-y * 9).toFixed(2) + "deg");
+                hx.style.setProperty("--px", x.toFixed(3));
+                hx.style.setProperty("--py", y.toFixed(3));
+                if (Math.abs(tx - x) > 0.001 || Math.abs(ty - y) > 0.001) raf = requestAnimationFrame(tick);
+                else raf = null;
+              };
+              hx.addEventListener("pointermove", function (ev) {
+                var r = hx.getBoundingClientRect();
+                tx = ((ev.clientX - r.left) / r.width - 0.5) * 2;
+                ty = ((ev.clientY - r.top) / r.height - 0.5) * 2;
+                if (!raf) raf = requestAnimationFrame(tick);
+              });
+              hx.addEventListener("pointerleave", function () { tx = 0; ty = 0; if (!raf) raf = requestAnimationFrame(tick); });
+            } else {
+              hx.classList.add("is-idle");
+            }
+          }
+          schedule();
         }
       } catch (e) { /* fail safe */ }
 
