@@ -414,9 +414,13 @@
   .hx .hero-actions { flex-wrap: nowrap; margin-top: var(--space-3); }
   .hx .hero-actions .btn { flex: 1 1 0; justify-content: center; white-space: nowrap; font-size: 0.95rem; padding: 0.9rem 0.75rem; }
   .hx-chip { font-size: 0.74rem; padding: 0.4rem 0.75rem; gap: 0.4rem; }
-  .hx-chip.is-a { top: 8%; left: -22%; }
-  .hx-chip.is-b { top: 56%; right: -22%; }
-  .hx-badge { width: 5.5rem; height: 5.5rem; left: -21%; bottom: 5%; }
+  /* Menos profundidad (translateZ) en celular: con la perspectiva, lo que
+     está muy "adelante" se agranda y se sale del borde de la pantalla */
+  .hx-chip.is-a { top: 8%; left: -13%; transform: translateZ(28px) translateY(10px); }
+  .hx-chip.is-b { top: 56%; right: -13%; transform: translateZ(48px) translateY(10px); }
+  .hx-chip.is-a.is-on { transform: translateZ(28px); }
+  .hx-chip.is-b.is-on { transform: translateZ(48px); }
+  .hx-badge { width: 5.25rem; height: 5.25rem; left: -12%; bottom: 5%; transform: translateZ(60px); }
   .hx-badge-core strong { font-size: 1.5rem; }
   .hx-badge-core span { font-size: 0.68rem; }
   .hx-badge text { font-size: 8.6px; letter-spacing: 0.1em; }

@@ -803,7 +803,7 @@
           var steps = hx.querySelectorAll(".hx-step");
           var chips = hx.querySelectorAll(".hx-chip");
           var tabs = Array.prototype.slice.call(hx.querySelectorAll(".hx-tab"));
-          var toggle = hx.querySelector(".hx-toggle");
+          var hxToggle = hx.querySelector(".hx-toggle");
           var stage = hx.querySelector(".hx-stage");
           var blobPath = hx.querySelector(".hx-blob path");
           var N = phrases.length;
@@ -898,11 +898,11 @@
           });
           hx.querySelector(".hx-prev").addEventListener("click", function () { prevSlide(true); });
           hx.querySelector(".hx-next").addEventListener("click", function () { next(true); });
-          if (toggle) {
-            toggle.addEventListener("click", function () {
+          if (hxToggle) {
+            hxToggle.addEventListener("click", function () {
               userPaused = !userPaused;
-              toggle.setAttribute("aria-pressed", userPaused ? "true" : "false");
-              toggle.setAttribute("aria-label", userPaused ? "Reanudar la rotación" : "Pausar la rotación");
+              hxToggle.setAttribute("aria-pressed", userPaused ? "true" : "false");
+              hxToggle.setAttribute("aria-label", userPaused ? "Reanudar la rotación" : "Pausar la rotación");
               syncPaused();
             });
           }
