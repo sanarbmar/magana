@@ -16,7 +16,7 @@
       "type": "image/png"
     },
     {
-      "src": "img/favicon-32x32.png", 
+      "src": "img/favicon-32x32.png",
       "sizes": "32x32",
       "type": "image/png"
     },
@@ -32,19 +32,9 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["business", "communication", "events"],
-  "screenshots": [
-    {
-      "src": "img/screenshot-desktop.jpg",
-      "sizes": "1280x720",
-      "type": "image/jpeg",
-      "form_factor": "wide"
-    },
-    {
-      "src": "img/screenshot-mobile.jpg", 
-      "sizes": "360x640",
-      "type": "image/jpeg",
-      "form_factor": "narrow"
-    }
+  "categories": [
+    "business",
+    "communication",
+    "events"
   ]
 }

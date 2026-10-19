@@ -1,0 +1,73 @@
+# =====================================================================
+# Magna Comunicaciones - reglas para agregar al .htaccess del servidor
+#
+# IMPORTANTE: NO reemplaces el .htaccess que ya existe en public_html.
+# Ábrelo en el Administrador de archivos de cPanel (Editar) y pega estas
+# reglas AL FINAL, debajo del bloque "php -- BEGIN cPanel-generated handler"
+# (ese bloque debe quedar intacto). Haz una copia de respaldo antes.
+# =====================================================================
+
+# --- No listar carpetas ---
+Options -Indexes
+
+# --- Página de error 404 propia ---
+ErrorDocument 404 /404.html
+
+# --- HTTPS y dominio sin www (no toca la validación SSL de cPanel) ---
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_URI} !^/\.well-known/ [NC]
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# --- Bloquear archivos internos ---
+<FilesMatch "(^\.|\.(md|log|sample|zip|bak|sql)$|^error_log$)">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+# --- Bloquear acceso web a la carpeta .git (si se subiera por error) ---
+<IfModule mod_rewrite.c>
+RewriteRule ^\.git - [F,L]
+</IfModule>
+
+# --- Tipos de archivo ---
+AddType video/mp4 .mp4
+AddType image/webp .webp
+AddType image/svg+xml .svg
+AddDefaultCharset UTF-8
+
+# --- Compresión ---
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Caché del navegador ---
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpeg "access plus 6 months"
+ExpiresByType image/png "access plus 6 months"
+ExpiresByType image/webp "access plus 6 months"
+ExpiresByType image/svg+xml "access plus 6 months"
+ExpiresByType video/mp4 "access plus 6 months"
+ExpiresByType font/woff2 "access plus 1 year"
+ExpiresByType text/css "access plus 1 week"
+ExpiresByType application/javascript "access plus 1 week"
+ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# --- Seguridad básica ---
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
