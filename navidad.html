@@ -1035,6 +1035,7 @@
     let currentIndex = 0;
 
     function updateSlider(index) {
+        if (!sliderImages || !dots.length) return;
         sliderImages.style.transform = `translateX(-${index * 800}px)`;
         dots.forEach(dot => dot.classList.remove('active'));
         dots[index].classList.add('active');
@@ -1070,6 +1071,7 @@ const totalSlides = sliderControls.length;
 const slideWidth = 100; // Assuming each slide takes 100% width
 
 function goToSlide(index) {
+    if (!sliderContainer || !totalSlides) return;
     sliderContainer.style.transform = `translateX(-${index * slideWidth}%)`;
     updateControls(index);
 }
