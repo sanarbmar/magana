@@ -605,6 +605,7 @@ $(function () {
         if (e.type === 'mouseleave') hoverAnim.style.transform = '';
     };
     const editCursor = e => {
+        if (!cursor) return;
         const { clientX: x, clientY: y } = e;
         cursor.style.left = x + 'px';
         cursor.style.top = y + 'px';
