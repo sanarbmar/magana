@@ -1,8 +1,10 @@
 /* ==========================================================================
-   Hero 3D — rama rediseno-hero (oct 2026)
-   Referencia: "Hero Loop" (Webflow) adaptado al sistema Informe de Gestión.
-   Tres frases que rotan en 3D, sincronizadas con una pila de fotos en
-   perspectiva que sigue al cursor. Sin librerías: CSS + JS propio.
+   Hero 3D (oct 2026)
+   Referencia: "Hero Loop" (Webflow) + diseño del hero de Magna (oct 2026).
+   Tres frases que rotan en 3D, sincronizadas con escenas en capas: una línea
+   de color al fondo y personas recortadas al frente, a distinta profundidad,
+   que se inclinan con el cursor (o el giroscopio en celular).
+   Sin librerías: CSS + JS propio.
    ========================================================================== */
 
 .hx {
@@ -17,41 +19,39 @@
   flex-direction: column;
   justify-content: center;
   padding: var(--space-4) 0 var(--space-3);
+  overflow: hidden;
 }
 .hx[data-slide="1"] { --accent: #2bb0ef; }               /* Gobiernos, aclarado para fondo tinta */
 .hx[data-slide="2"] { --accent: var(--magna-core); }
 
-/* ---- Fondo: la misma foto activa, oscurecida, con un halo del color ---- */
+/* ---- Fondo: foto del escritorio (ya viene oscurecida desde diseño) ---- */
 .hx-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
 .hx-bg-img {
   position: absolute;
   inset: -4%;
-  opacity: 0;
-  transform: translate3d(calc(var(--px) * -14px), calc(var(--py) * -10px), 0) scale(1.08);
-  transition: opacity 1.4s var(--ease-out-expo);
+  transform: translate3d(calc(var(--px) * -14px), calc(var(--py) * -10px), 0) scale(1.04);
 }
-.hx-bg-img.is-active { opacity: 0.22; }
-.hx-bg-img img { width: 100%; height: 100%; object-fit: cover; display: block; filter: grayscale(0.4); }
+.hx-bg-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .hx-bg::after {
   content: "";
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(60% 70% at 78% 45%, color-mix(in srgb, var(--accent) 30%, transparent) 0%, transparent 65%),
-    linear-gradient(90deg, var(--ink) 0%, rgba(20,20,20,0.88) 42%, rgba(20,20,20,0.55) 100%),
-    linear-gradient(180deg, rgba(20,20,20,0) 60%, var(--ink) 100%);
-  transition: background 1s ease;
+  /* solo un velo a la izquierda para que el texto se lea bien */
+  background: linear-gradient(90deg, rgba(20,20,20,0.72) 0%, rgba(20,20,20,0.38) 42%, rgba(20,20,20,0) 68%);
 }
 
 .hx-grid {
-  position: relative;
-  z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   align-items: center;
   gap: var(--space-5);
   width: 100%;
 }
+.hx-copy { position: relative; z-index: 2; }
+/* magna.css pone ".field > .wrap" en position: relative; aquí el grid no debe
+   serlo, para que el escenario se ubique respecto a todo el hero */
+.hx > .wrap.hx-grid { position: static; }
+.hx > .wrap.hx-controls { z-index: 2; }
 
 /* ---- Rotador de frases en 3D ---- */
 .hx-title {
@@ -149,72 +149,63 @@
 .field-ink .hx-lede a.hx-front:hover { text-decoration-color: currentColor; }
 .hx .hero-actions { margin: var(--space-3) 0 0; }
 
-/* ---- Escenario 3D: pila de fotos en perspectiva ---- */
+/* ---- Escenario 3D: escenas en capas (línea atrás, personas adelante) ----
+   En escritorio ocupa la mitad derecha del hero, de arriba abajo, como en el
+   diseño. Las imágenes son cuadradas (1100×1108) con fondo transparente. */
 .hx-stage {
-  position: relative;
-  width: min(100%, 27rem, calc((100svh - 17rem) * 0.8));
-  aspect-ratio: 4 / 5;
-  margin-left: auto;
-  margin-right: var(--space-4);
-  perspective: 1500px;
+  position: absolute;
+  z-index: 1;
+  bottom: -2%;
+  right: min(0px, calc((100vw - 80rem) * 0.5));
+  height: 102%;
+  aspect-ratio: 1100 / 1108;
+  perspective: 1600px;
+  perspective-origin: 50% 40%;
 }
 .hx-rig {
   position: absolute;
   inset: 0;
   transform-style: preserve-3d;
-  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-origin: 50% 70%;
+  transform: rotateX(calc(var(--rx) * 0.55)) rotateY(calc(var(--ry) * 0.55));
 }
 .hx-card {
   position: absolute;
   inset: 0;
   margin: 0;
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: #222;
-  box-shadow: 0 2.5rem 5rem -1.5rem rgba(0,0,0,0.75), 0 0.5rem 1.25rem -0.5rem rgba(0,0,0,0.5);
-  transition:
-    transform 1.2s var(--ease-out-expo),
-    opacity 0.9s ease,
-    filter 0.9s ease;
-  will-change: transform;
+  transform-style: preserve-3d;
+  pointer-events: none;
+  transition: transform 1.2s var(--ease-out-expo), opacity 0.9s ease;
 }
-.hx-card img {
-  width: 112%;
-  height: 112%;
-  margin: -6%;
-  object-fit: cover;
+.hx-line, .hx-people {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   display: block;
-  transform: translate3d(calc(var(--px) * 12px), calc(var(--py) * 10px), 0);
+  -webkit-user-drag: none;
+  user-select: none;
 }
-.hx-card[data-pos="0"] { transform: translate3d(0, 0, 0); opacity: 1; z-index: 3; }
-.hx-card[data-pos="1"] { transform: translate3d(9%, -7%, -150px) rotateY(-5deg); opacity: 1; filter: brightness(0.42) saturate(0.6); z-index: 2; }
-.hx-card[data-pos="2"] { transform: translate3d(17%, -13%, -300px) rotateY(-9deg); opacity: 0.85; filter: brightness(0.28) saturate(0.4); z-index: 1; }
+/* La línea va 140px más atrás (escalada para compensar la perspectiva) y
+   se "dibuja" de derecha a izquierda cuando entra su frase */
+.hx-line {
+  transform: translate3d(calc(var(--px) * -12px), calc(var(--py) * -8px), -140px) scale(1.09);
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path 1.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.hx-card[data-pos="0"] .hx-line { clip-path: inset(0 0 0 0); transition-delay: 0.25s; }
+.hx-people { transform: translate3d(calc(var(--px) * 8px), calc(var(--py) * 6px), 30px); }
+
+.hx-card[data-pos="0"] { opacity: 1; z-index: 3; }
+.hx-card[data-pos="1"],
+.hx-card[data-pos="2"] { transform: translate3d(14%, 4%, -240px) rotateY(-14deg); opacity: 0; z-index: 1; }
 .hx-card[data-pos="out"] {
-  transform: translate3d(-70%, 10%, 160px) rotateY(32deg) rotateZ(-5deg);
+  transform: translate3d(-42%, 6%, 140px) rotateY(28deg);
   opacity: 0;
   z-index: 4;
-  transition: transform 0.8s cubic-bezier(0.55, 0, 0.75, 0.2), opacity 0.6s ease 0.15s;
+  transition: transform 0.8s cubic-bezier(0.55, 0, 0.75, 0.2), opacity 0.6s ease 0.1s;
 }
-.hx-card figcaption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: var(--space-3) var(--space-2) var(--space-2);
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: rgba(255,255,255,0.9);
-  background: linear-gradient(180deg, transparent, rgba(20,20,20,0.85));
-}
-
-/* Forma orgánica del Informe de Gestión, detrás de la foto */
-.hx-blob {
-  position: absolute;
-  inset: -12% -16% -10% -14%;
-  transform: translateZ(-90px);
-  pointer-events: none;
-}
-.hx-blob path { fill: var(--accent); opacity: 0.9; transition: fill 0.8s ease, d 1.2s var(--ease-out-expo); }
 
 /* Etiquetas flotantes (capítulos) — cambian con cada frase */
 .hx-chips { position: absolute; inset: 0; transform-style: preserve-3d; pointer-events: none; }
@@ -243,8 +234,8 @@
   background: var(--accent);
   transition: background 0.6s ease;
 }
-.hx-chip.is-a { top: 12%; left: -16%; transform: translateZ(60px) translateY(10px); }
-.hx-chip.is-b { top: 52%; right: -12%; transform: translateZ(130px) translateY(10px); }
+.hx-chip.is-a { top: 46%; left: 10%; transform: translateZ(60px) translateY(10px); }
+.hx-chip.is-b { top: 62%; right: 8%; transform: translateZ(130px) translateY(10px); }
 .hx-chip.is-on { opacity: 1; }
 .hx-chip.is-a.is-on { transform: translateZ(60px); transition-delay: 0.45s; }
 .hx-chip.is-b.is-on { transform: translateZ(130px); transition-delay: 0.6s; }
@@ -252,11 +243,11 @@
 /* Sello circular "19 años" */
 .hx-badge {
   position: absolute;
-  left: -14%;
-  bottom: 4%;
-  width: 8.5rem;
-  height: 8.5rem;
-  transform: translateZ(170px);
+  right: 4%;
+  top: 7%;
+  width: 7.5rem;
+  height: 7.5rem;
+  transform: translateZ(120px);
   border-radius: 50%;
   background: var(--accent);
   color: var(--ink);
@@ -275,14 +266,17 @@
 /* ---- Controles: pestañas con progreso, flechas y pausa ---- */
 .hx-controls {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: var(--space-3);
   margin-top: var(--space-4);
   width: 100%;
 }
-.hx-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); flex: 1; min-width: 0; }
+/* en escritorio los controles quedan bajo el texto, sin tapar a las personas */
+.hx-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-2); flex: 0 1 32rem; min-width: 0; }
+/* anterior/siguiente se reemplazan por las pestañas (clic o flechas del teclado) */
+.hx-btns .hx-prev, .hx-btns .hx-next { display: none; }
 .hx-tab {
   position: relative;
   padding: 0.85rem 0 0;
@@ -334,7 +328,7 @@
 .hx.is-user-paused .hx-btn .i-play { display: block; }
 .hx.is-user-paused .hx-btn .i-pause { display: none; }
 
-/* ---- Gesto táctil: la foto de arriba sigue al dedo ---- */
+/* ---- Gesto táctil: la escena de adelante sigue al dedo ---- */
 .hx-card[data-pos="0"] {
   transform:
     translate3d(var(--dx, 0px), 0, 0)
@@ -343,10 +337,16 @@
 }
 .hx.is-dragging .hx-card { transition: none; }
 .hx-card[data-pos="out-r"] {
-  transform: translate3d(70%, 10%, 160px) rotateY(-32deg) rotateZ(5deg);
+  transform: translate3d(42%, 6%, 140px) rotateY(-28deg);
   opacity: 0;
   z-index: 4;
-  transition: transform 0.8s cubic-bezier(0.55, 0, 0.75, 0.2), opacity 0.6s ease 0.15s;
+  transition: transform 0.8s cubic-bezier(0.55, 0, 0.75, 0.2), opacity 0.6s ease 0.1s;
+}
+
+/* Escritorio angosto: escena un poco más pequeña y corrida a la derecha
+   para no montarse sobre el texto */
+@media (min-width: 961px) and (max-width: 1200px) {
+  .hx-stage { height: 90%; bottom: 0; right: calc((100vw - 80rem) * 0.7); }
 }
 
 /* ---- Responsive ----
@@ -362,19 +362,29 @@
     overflow: hidden;
   }
   .hx-grid { display: contents; }
-  .hx-copy, .hx-stage { position: relative; z-index: 1; }
+  .hx-copy { position: relative; z-index: 2; }
   .hx-stage {
     order: 1;
-    width: min(46vw, 21rem);
-    margin: var(--space-2) auto 0;
-    left: -3%;
-    perspective: 1100px;
+    position: relative;
+    z-index: 1;
+    right: auto;
+    bottom: auto;
+    height: auto;
+    width: min(100%, 34rem);
+    margin: 0 auto;
+    perspective: 1200px;
     touch-action: pan-y;               /* el scroll vertical sigue funcionando */
     -webkit-user-select: none;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
   }
-  .hx-controls { order: 2; margin-top: var(--space-4); }
+  .hx-controls { order: 2; margin-top: calc(var(--space-4) * -1); }
+  .hx-tabs { flex: 1; }
+  /* la parte de abajo de las personas se desvanece hacia las pestañas */
+  .hx-people, .hx-line {
+    -webkit-mask-image: linear-gradient(180deg, #000 72%, transparent 98%);
+    mask-image: linear-gradient(180deg, #000 72%, transparent 98%);
+  }
   .hx-copy {
     order: 3;
     width: 100%;
@@ -383,23 +393,20 @@
     padding: 0 var(--space-3);
   }
   .hx-bg::after {
-    background:
-      radial-gradient(70% 38% at 50% 24%, color-mix(in srgb, var(--accent) 34%, transparent) 0%, transparent 70%),
-      linear-gradient(180deg, rgba(20,20,20,0.5) 0%, rgba(20,20,20,0.82) 40%, var(--ink) 78%);
+    background: linear-gradient(180deg, rgba(20,20,20,0.1) 0%, rgba(20,20,20,0.45) 40%, rgba(20,20,20,0.85) 70%);
   }
-  .hx-chip.is-a { left: -18%; }
-  .hx-chip.is-b { right: -16%; }
-  .hx-badge { width: 6.75rem; height: 6.75rem; left: -16%; bottom: 7%; }
+  .hx-chip.is-a { top: 34%; left: 4%; }
+  .hx-chip.is-b { top: 62%; right: 6%; }
+  .hx-badge { width: 6.75rem; height: 6.75rem; right: 4%; top: 6%; left: auto; bottom: auto; }
   .hx-badge-core strong { font-size: 1.85rem; }
   .hx-badge text { font-size: 8.4px; }
 }
 @media (max-width: 760px) {
   .hx { padding-top: var(--space-2); }
-  .hx-stage { width: min(60vw, 16.5rem); aspect-ratio: 4 / 4.6; margin-top: var(--space-2); }
-  .hx-controls { margin-top: var(--space-4); gap: var(--space-2); }
+  .hx-stage { width: 100%; }
+  .hx-controls { gap: var(--space-2); }
   .hx-tabs { gap: 0.6rem; }
   .hx-tab { font-size: 0.75rem; white-space: normal; line-height: 1.25; overflow: visible; padding-top: 0.7rem; }
-  .hx-prev, .hx-next { display: none; }    /* en celular se desliza o se toca la foto */
   .hx-btn { width: 2.5rem; height: 2.5rem; }
   .hx-copy { margin-top: var(--space-3); display: flex; flex-direction: column; }
   .hx-copy .hero-actions { order: 1; }   /* botones antes del párrafo largo */
@@ -416,11 +423,11 @@
   .hx-chip { font-size: 0.74rem; padding: 0.4rem 0.75rem; gap: 0.4rem; }
   /* Menos profundidad (translateZ) en celular: con la perspectiva, lo que
      está muy "adelante" se agranda y se sale del borde de la pantalla */
-  .hx-chip.is-a { top: 8%; left: -13%; transform: translateZ(28px) translateY(10px); }
-  .hx-chip.is-b { top: 56%; right: -13%; transform: translateZ(48px) translateY(10px); }
-  .hx-chip.is-a.is-on { transform: translateZ(28px); }
-  .hx-chip.is-b.is-on { transform: translateZ(48px); }
-  .hx-badge { width: 5.25rem; height: 5.25rem; left: -12%; bottom: 5%; transform: translateZ(60px); }
+  .hx-chip.is-a { top: 34%; left: 6%; transform: translateZ(45px) translateY(10px); }
+  .hx-chip.is-b { top: 62%; right: 7%; transform: translateZ(55px) translateY(10px); }
+  .hx-chip.is-a.is-on { transform: translateZ(45px); }
+  .hx-chip.is-b.is-on { transform: translateZ(55px); }
+  .hx-badge { width: 5.25rem; height: 5.25rem; right: 8%; top: 6%; transform: translateZ(50px); }
   .hx-badge-core strong { font-size: 1.5rem; }
   .hx-badge-core span { font-size: 0.68rem; }
   .hx-badge text { font-size: 8.6px; letter-spacing: 0.1em; }
@@ -442,7 +449,8 @@
   .hx-badge svg { animation: none; }
   .hx-w > span { transform: none !important; }
   .hx-phrase.is-out { visibility: hidden; }
-  .hx-bg-img, .hx-card img { transform: none; }
+  .hx-bg-img, .hx-line, .hx-people { transform: none; }
+  .hx-line { clip-path: none; transition: none; }
   .hx-card, .hx-card[data-pos] { transform: none !important; transition: opacity 0.8s ease; filter: none; }
   .hx-card:not([data-pos="0"]) { opacity: 0; }
 }

@@ -170,25 +170,22 @@
 
   <main id="main">
 
-    <!-- ================= HERO 3D (rama rediseno-hero) =================
-         Tres frases que rotan en 3D, cada una ligada a una foto, a un color y
-         a dos capítulos del método:
-           0 · "Tú imaginas."                         → ámbar  · Estrategia / Conexión
-           1 · "Nosotros lo hacemos funcionar."       → azul   · Ejecución / Simplificación
-           2 · "Magna Comunicaciones, hacemos que todo marche." → naranja · Medición / Resultados
-         Para cambiar una foto: reemplaza el src de la misma diapositiva en
-         .hx-bg-img (fondo) y en .hx-card (tarjeta); son la misma imagen, el
-         navegador la descarga una sola vez. Estilos en css/hero-3d.css. ================= -->
+    <!-- ================= HERO 3D =================
+         Tres frases que rotan en 3D. Cada frase tiene su escena (línea de color
+         detrás + personas recortadas delante, en capas a distinta profundidad),
+         un color y dos capítulos del método:
+           0 · "Tú imaginas."                         → ámbar   · linea-1 + hero-1
+           1 · "Nosotros lo hacemos funcionar."       → azul    · linea-2 + hero-2
+           2 · "Magna Comunicaciones, hacemos que todo marche." → naranja · linea-3 + hero-3
+         Imágenes en img/hero/ (diseño oct 2026): fondo.jpg (escritorio) y, por
+         escena, linea-N.webp y hero-N.webp (PNG recortados con fondo
+         transparente; las versiones -sm son para celular). Para cambiar una
+         escena basta con reemplazar esos archivos con el mismo nombre.
+         Estilos en css/hero-3d.css. ================= -->
     <section class="field field-ink hx" id="heroSlider" data-slide="0" aria-roledescription="carrusel" aria-label="Magna Comunicaciones: tú imaginas, nosotros lo hacemos funcionar">
       <div class="hx-bg" aria-hidden="true">
-        <div class="hx-bg-img is-active" data-bg="0">
-          <picture><source media="(max-width: 760px)" srcset="img/hero/slide-1-sm.jpg"><img src="img/hero/slide-1.jpg" alt="" fetchpriority="high" style="object-position:72% 30%"></picture>
-        </div>
-        <div class="hx-bg-img" data-bg="1">
-          <picture><source media="(max-width: 760px)" srcset="img/hero/slide-3-sm.jpg"><img src="img/hero/slide-3.jpg" alt="" loading="lazy" style="object-position:62% 40%"></picture>
-        </div>
-        <div class="hx-bg-img" data-bg="2">
-          <picture><source media="(max-width: 760px)" srcset="img/hero/slide-4-sm.jpg"><img src="img/hero/slide-4.jpg" alt="" loading="lazy" style="object-position:30% 45%"></picture>
+        <div class="hx-bg-img is-active">
+          <picture><source media="(max-width: 760px)" srcset="img/hero/fondo-sm.jpg"><img src="img/hero/fondo.jpg" alt="" width="1920" height="1080"></picture>
         </div>
       </div>
 
@@ -212,17 +209,17 @@
 
         <div class="hx-stage" id="hxStage" role="tabpanel" aria-live="off">
           <div class="hx-rig">
-            <svg class="hx-blob" viewBox="0 0 400 480" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-              <path d="M210,18 C300,10 382,70 388,170 C394,262 352,300 360,372 C368,440 300,474 220,466 C130,458 60,470 26,400 C-4,336 30,282 22,214 C14,140 40,60 110,34 C140,24 176,20 210,18 Z"/>
-            </svg>
             <figure class="hx-card" data-card="0" data-pos="0">
-              <picture><source media="(max-width: 760px)" srcset="img/hero/slide-1-sm.jpg"><img src="img/hero/slide-1.jpg" alt="Integrante de Magna en una sesión de trabajo estratégico" loading="eager" style="object-position:72% 30%"></picture>
+              <img class="hx-line" src="img/hero/linea-1.webp" srcset="img/hero/linea-1-sm.webp 680w, img/hero/linea-1.webp 1100w" sizes="(max-width: 960px) 100vw, 62vw" alt="" width="1100" height="1108" loading="eager">
+              <img class="hx-people" src="img/hero/hero-1.webp" srcset="img/hero/hero-1-sm.webp 680w, img/hero/hero-1.webp 1100w" sizes="(max-width: 960px) 100vw, 62vw" alt="Dos mujeres sonrientes revisando juntas un celular" width="1100" height="1108" loading="eager" fetchpriority="high">
             </figure>
             <figure class="hx-card" data-card="1" data-pos="1">
-              <picture><source media="(max-width: 760px)" srcset="img/hero/slide-3-sm.jpg"><img src="img/hero/slide-3.jpg" alt="Equipo de Magna trabajando en conjunto frente a un computador" loading="lazy" style="object-position:62% 40%"></picture>
+              <img class="hx-line" src="img/hero/linea-2.webp" srcset="img/hero/linea-2-sm.webp 680w, img/hero/linea-2.webp 1100w" sizes="(max-width: 960px) 100vw, 62vw" alt="" width="1100" height="1108" loading="lazy">
+              <img class="hx-people" src="img/hero/hero-2.webp" srcset="img/hero/hero-2-sm.webp 680w, img/hero/hero-2.webp 1100w" sizes="(max-width: 960px) 100vw, 62vw" alt="Camarógrafo operando una cámara de video profesional" width="1100" height="1108" loading="lazy">
             </figure>
             <figure class="hx-card" data-card="2" data-pos="2">
-              <picture><source media="(max-width: 760px)" srcset="img/hero/slide-4-sm.jpg"><img src="img/hero/slide-4.jpg" alt="Equipo de Magna Comunicaciones reunido, riendo, en la oficina" loading="lazy" style="object-position:30% 45%"></picture>
+              <img class="hx-line" src="img/hero/linea-3.webp" srcset="img/hero/linea-3-sm.webp 680w, img/hero/linea-3.webp 1100w" sizes="(max-width: 960px) 100vw, 62vw" alt="" width="1100" height="1108" loading="lazy">
+              <img class="hx-people" src="img/hero/hero-3.webp" srcset="img/hero/hero-3-sm.webp 680w, img/hero/hero-3.webp 1100w" sizes="(max-width: 960px) 100vw, 62vw" alt="Tres mujeres sonrientes, de brazos cruzados" width="1100" height="1108" loading="lazy">
             </figure>
             <div class="hx-chips" aria-hidden="true">
               <span class="hx-chip is-a is-on" data-chip="0">Estrategia</span>
@@ -799,13 +796,11 @@
         if (hx) {
           var phrases = hx.querySelectorAll(".hx-phrase");
           var cards = hx.querySelectorAll(".hx-card");
-          var bgs = hx.querySelectorAll(".hx-bg-img");
           var steps = hx.querySelectorAll(".hx-step");
           var chips = hx.querySelectorAll(".hx-chip");
           var tabs = Array.prototype.slice.call(hx.querySelectorAll(".hx-tab"));
           var hxToggle = hx.querySelector(".hx-toggle");
           var stage = hx.querySelector(".hx-stage");
-          var blobPath = hx.querySelector(".hx-blob path");
           var N = phrases.length;
           var DUR = 6500;
           var cur = 0;
@@ -814,11 +809,6 @@
           var hoverPaused = false;
           var finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
           var clamp = function (v, lo, hi) { return v < lo ? lo : v > hi ? hi : v; };
-          var blobs = [
-            "M210,18 C300,10 382,70 388,170 C394,262 352,300 360,372 C368,440 300,474 220,466 C130,458 60,470 26,400 C-4,336 30,282 22,214 C14,140 40,60 110,34 C140,24 176,20 210,18 Z",
-            "M190,10 C280,30 370,40 384,140 C398,240 330,280 372,360 C404,430 330,480 240,470 C150,460 90,446 40,392 C-6,342 14,280 30,210 C46,140 20,80 80,40 C116,16 152,4 190,10 Z",
-            "M230,26 C320,26 392,96 380,190 C368,280 396,330 360,400 C326,462 250,470 180,462 C100,454 30,430 18,350 C8,282 54,250 40,180 C26,110 70,40 140,28 C172,22 200,26 230,26 Z"
-          ];
           hx.style.setProperty("--hx-dur", DUR + "ms");
 
           // La foto que sale vuela hacia la izquierda ("out") o la derecha ("out-r")
@@ -847,7 +837,6 @@
               phrases[i].classList.remove("is-in", "is-out");
               if (i === cur) phrases[i].classList.add("is-in");
               else if (i === prev) phrases[i].classList.add("is-out");
-              bgs[i].classList.toggle("is-active", i === cur);
             }
             for (var s = 0; s < steps.length; s++) {
               steps[s].classList.toggle("is-on", Number(steps[s].getAttribute("data-step")) === cur);
@@ -861,7 +850,6 @@
               tab.tabIndex = on ? 0 : -1;
               if (on) { var bar = tab.querySelector(".hx-tab-bar"); bar.style.animation = "none"; void bar.offsetWidth; bar.style.animation = ""; }
             });
-            if (blobPath) blobPath.setAttribute("d", blobs[cur % blobs.length]);
             setPositions(cur, prev, outDir);
             if (fromUser) restart();
           };
